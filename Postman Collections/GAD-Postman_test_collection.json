@@ -1,0 +1,1145 @@
+{
+	"info": {
+		"_postman_id": "cd1e8df9-da2b-4583-80bf-17313fbb368b",
+		"name": "GAD - tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Login - positive",
+					"item": [
+						{
+							"name": "Login as user to receive token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has the required field - access_token\", function () {\r",
+											"    pm.expect(responseData.access_token).to.exist;\r",
+											"    //or\r",
+											"    pm.expect(responseData).has.property('access_token')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Data type of field - access_token is a string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"access_token is a non-empty string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"    pm.environment.set('token', responseData.access_token);\r",
+											"\r",
+											"    //import 'Moment' library\r",
+											"    const moment = require('moment');\r",
+											"    //setting the exact moment of generating a new token\r",
+											"    pm.environment.set('token_generation_moment', moment())\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "9b64e4e0-eb27-4e37-b969-fcbe50f9bab7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "5f071182-1821-4a68-9a6e-8d35be9451a4",
+									"name": "Login as user to receive token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 08:15:09 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ff3d2f3ed6534b8-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bf-TQgzhcSg1Hinj1IpjBsk0r9pjho\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"access_token\": \"example-of-token\"\n}"
+								}
+							]
+						}
+					],
+					"_postman_id": "b6a117e7-8fff-43d8-a7c0-3608edeaaf0c",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Login - negative",
+					"item": [
+						{
+							"name": "incorrect password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "619e9371-a8e8-4421-9bdd-2b60688a1ded",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"wrong-password\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "174368cf-a22f-4f84-b3ad-587170ae8cdb",
+									"name": "invalid password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"wrong-password\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 09:37:04 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ff44af36adafc67-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
+						},
+						{
+							"name": "incorrect user e-mail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "58bb5a57-b0bf-4ff7-b2aa-8257b10b279d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "f75024e1-922d-4209-a836-cfae30ea1095",
+									"name": "incorrect user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 09:56:47 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ff467d65feec019-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
+						}
+					],
+					"_postman_id": "6af74126-034a-4066-ad04-9bb8c3d7cd1e",
+					"description": "incorrect login, correct password\n\ncorrect login, incorrect password\n\nempty login, corect password\n\ncorrect login, empty password\n\ncorrect login, no password property\n\nno login property, correct password\n\nempty body (none)\n\nempty json in body\n\nLIST in body\n\nwrong data type in login\n\nwrong data type in password\n\nrequest with xml\n\nbroken json body\n\nnot allowed method",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8f5f28d2-0975-4664-887f-e467aabe1f0e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "90af4667-2103-4c5b-a448-30bc113aa95b",
+								"type": "text/javascript",
+								"exec": [
+									"let responseData;",
+									"",
+									"const Responseschema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"status\": {",
+									"            \"type\": \"integer\", nullable: false",
+									"        },",
+									"        \"message\": {",
+									"            \"type\": \"string\", nullable: false",
+									"        }",
+									"    },",
+									"    \"required\": [\"status\", \"message\"]",
+									"};",
+									"",
+									"pm.test(\"Response status code should be 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Response is in JSON format\", function () {",
+									"    pm.response.to.be.json;",
+									"    responseData = pm.response.json()",
+									"});",
+									"",
+									"pm.test(\"Response has valid schema\", function () {",
+									"    pm.response.to.has.jsonSchema(Responseschema)",
+									"});",
+									"",
+									"pm.test(\"Message is a non-empty string\", function () {",
+									"    pm.expect(responseData.message).to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"_postman_id": "f3709e90-3c1c-4976-b62c-50ed5f78e7ec"
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get users - positive",
+					"item": [
+						{
+							"name": "Get all users list",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"const Responseschema = {\r",
+											"    \"type\": \"array\",\r",
+											"    \"items\": {\r",
+											"        \"type\": \"object\",\r",
+											"        \"properties\": {\r",
+											"            \"id\": { \"type\": \"integer\", nullable: false },\r",
+											"            \"email\": { \"type\": \"string\", nullable: false },\r",
+											"            \"firstname\": { \"type\": \"string\", nullable: false },\r",
+											"            \"lastname\": { \"type\": \"string\", nullable: false },\r",
+											"            \"password\": { \"type\": \"string\", nullable: false },\r",
+											"            \"avatar\": { \"type\": \"string\", nullable: false }\r",
+											"        },\r",
+											"        \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+											"    }\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has valid schema\", function () {\r",
+											"    pm.response.to.has.jsonSchema(Responseschema)\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is not an empty array\", function () {\r",
+											"    pm.expect(responseData).to.be.an('array').and.to.have.length.above(0);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "973844c0-c8a0-4f4f-bc88-6be4fe3a8cdb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/users"
+							},
+							"response": [
+								{
+									"id": "598c64bb-0ab1-4079-abd5-d52691a35474",
+									"name": "Get users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/users"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 01 Sep 2023 10:33:41 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ffcdb434cc1006e-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7a3-BTHgzZCxWePo706DQ5mKnDd3vLE\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin, Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "cross-origin-embedder-policy",
+											"value": "require-corp"
+										},
+										{
+											"key": "cross-origin-opener-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "cross-origin-resource-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "origin-agent-cluster",
+											"value": "?1"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "[\n    {\n        \"id\": 1,\n        \"email\": \"****\",\n        \"firstname\": \"Moses\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\n    },\n    {\n        \"id\": 2,\n        \"email\": \"****\",\n        \"firstname\": \"Danial\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133060.68834.jpg\"\n    },\n    {\n        \"id\": 3,\n        \"email\": \"****\",\n        \"firstname\": \"Daryl\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133063.620005.jpg\"\n    },\n    {\n        \"id\": 4,\n        \"email\": \"****\",\n        \"firstname\": \"Dortha\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133112.3790507.jpg\"\n    },\n    {\n        \"id\": 5,\n        \"email\": \"****\",\n        \"firstname\": \"Lenore\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133153.523801.jpg\"\n    },\n    {\n        \"id\": 6,\n        \"email\": \"****\",\n        \"firstname\": \"Kerra\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133363.1959925.jpg\"\n    },\n    {\n        \"id\": 7,\n        \"email\": \"****\",\n        \"firstname\": \"Mas\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133217.1529467.jpg\"\n    },\n    {\n        \"id\": 8,\n        \"email\": \"****\",\n        \"firstname\": \"Josh\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591134851.6068161.jpg\"\n    },\n    {\n        \"id\": 9,\n        \"email\": \"****\",\n        \"firstname\": \"Daryl\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591134851.6068265.jpg\"\n    },\n    {\n        \"id\": 10,\n        \"email\": \"****\",\n        \"firstname\": \"John\",\n        \"lastname\": \"****\",\n        \"password\": \"****\",\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591137202.609116_1.jpg\"\n    },\n    {\n        \"email\": \"****\",\n        \"firstname\": \"Ona\",\n        \"lastname\": \"****\",\n        \"avatar\": \"https://cdn.fakercloud.com/avatars/justinrhee_128.jpg\",\n        \"password\": \"****\",\n        \"id\": 11\n    }\n]"
+								}
+							]
+						}
+					],
+					"_postman_id": "db858bf0-9f83-4edb-a10b-9d1fa956e311",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get users - negative",
+					"item": [
+						{
+							"name": "PUT list on users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "5a9e4411-876a-48ba-a235-069fcebbe7ef",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"email\": \"****\",\r\n        \"firstname\": \"Moses\",\r\n        \"lastname\": \"****\",\r\n        \"password\": \"****\",\r\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH list on users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "3e1d648c-70c2-4e11-b235-766678b718cd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"email\": \"****\",\r\n        \"firstname\": \"Moses\",\r\n        \"lastname\": \"****\",\r\n        \"password\": \"****\",\r\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "42bf607e-56cd-4263-9076-a18c41fd8730",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Find user by ID",
+					"item": [],
+					"_postman_id": "4fb0eda6-9b16-42ac-abbf-7320d0e3cce4",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create user",
+					"item": [],
+					"_postman_id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete user - positive",
+					"item": [
+						{
+							"name": "Delete user with given ID - positive",
+							"item": [
+								{
+									"name": "Create user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.collectionVariables.set('userID', pm.response.json().id);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"_postman_id": "dbc133bd-f986-48c8-8063-2d69b73ac2da",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"{{$randomEmail}}\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/users"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete a user",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "e621036f-e3bf-4123-8cf9-d342471e7174",
+												"exec": [
+													"const moment = require('moment');\r",
+													"const baseURL = pm.variables.get(\"baseUrl\");\r",
+													"var token = pm.variables.get(\"token\");\r",
+													"const login = 'admin' //pm.variables.get(\"login\");\r",
+													"const password = 'admin' //pm.variables.get(\"password\");\r",
+													"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+													"\r",
+													"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
+													"\r",
+													"if (!token || isTokenExpired) {\r",
+													"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+													"\r",
+													"    const options =\r",
+													"    {\r",
+													"        url: baseURL + \"/login\",\r",
+													"        method: 'POST',\r",
+													"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+													"        body: {\r",
+													"            mode: 'raw',\r",
+													"            raw: JSON.stringify(\r",
+													"                {\r",
+													"                    \"email\": login,\r",
+													"                    \"password\": password\r",
+													"                }\r",
+													"            )\r",
+													"        }\r",
+													"    };\r",
+													"\r",
+													"    pm.sendRequest(options, function (err, res) {\r",
+													"        if (err) {\r",
+													"            console.log(err);\r",
+													"        }\r",
+													"        else {\r",
+													"            var jsonData = res.json();\r",
+													"            pm.environment.set(\"token\", jsonData.access_token);\r",
+													"            pm.environment.set(\"token_generation_moment\", moment());\r",
+													"        }\r",
+													"    });\r",
+													"\r",
+													"};"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "91a9e471-8fd7-4758-8499-9386b375cd82",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"_postman_id": "fe2f4263-a7a2-493a-b2c4-0ae330dcdb5f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{userID}}",
+													"type": "string"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get all users list",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "487b84a4-6737-4a72-aba2-9cbbbf3723fe",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"The list of all users does not contain the id of the deleted user\", function () {\r",
+													"    let userID = pm.collectionVariables.get('userID');\r",
+													"    let users = pm.response.json();\r",
+													"    _.each(users, (user) => {\r",
+													"        pm.expect(user.id).not.eql(userID);\r",
+													"    });\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"_postman_id": "e06040b4-ebbe-436f-ac9b-7081bc2899fd",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{baseUrl}}/users"
+									},
+									"response": []
+								},
+								{
+									"name": "Find user by ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "aa521810-04bc-4587-813c-4f55cae9f59a",
+												"exec": [
+													"pm.test(\"Status code is 404, user not found\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.collectionVariables.unset('userID')"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"_postman_id": "67d7fc18-d69d-474e-a17f-cb2af6314b31",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{userID}}",
+													"type": "string"
+												}
+											]
+										},
+										"description": "Returns a single user"
+									},
+									"response": []
+								}
+							],
+							"_postman_id": "2f0e5a30-b14b-4ccf-8469-7ee04ebf2f45",
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_id": "087a7833-b627-468d-b847-2f4e89070f81",
+					"_postman_isSubFolder": true
+				}
+			],
+			"_postman_id": "4004895d-e9d2-4c19-a350-dbaf083e2efc"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "81343b87-9718-4f3b-8bb8-28253328bbd2",
+				"type": "text/javascript",
+				"exec": [
+					"console.info('Running request: ' + pm.info.requestName);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "739fa568-af14-4cdc-8f32-13d61d51afbd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
