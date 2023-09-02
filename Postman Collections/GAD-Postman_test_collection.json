@@ -54,7 +54,7 @@
 									}
 								}
 							],
-							"_postman_id": "9b64e4e0-eb27-4e37-b969-fcbe50f9bab7",
+							"id": "9b64e4e0-eb27-4e37-b969-fcbe50f9bab7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -193,8 +193,7 @@
 							]
 						}
 					],
-					"_postman_id": "b6a117e7-8fff-43d8-a7c0-3608edeaaf0c",
-					"_postman_isSubFolder": true
+					"id": "b6a117e7-8fff-43d8-a7c0-3608edeaaf0c"
 				},
 				{
 					"name": "Login - negative",
@@ -213,7 +212,7 @@
 									}
 								}
 							],
-							"_postman_id": "619e9371-a8e8-4421-9bdd-2b60688a1ded",
+							"id": "619e9371-a8e8-4421-9bdd-2b60688a1ded",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -358,7 +357,7 @@
 									}
 								}
 							],
-							"_postman_id": "58bb5a57-b0bf-4ff7-b2aa-8257b10b279d",
+							"id": "58bb5a57-b0bf-4ff7-b2aa-8257b10b279d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -490,7 +489,7 @@
 							]
 						}
 					],
-					"_postman_id": "6af74126-034a-4066-ad04-9bb8c3d7cd1e",
+					"id": "6af74126-034a-4066-ad04-9bb8c3d7cd1e",
 					"description": "incorrect login, correct password\n\ncorrect login, incorrect password\n\nempty login, corect password\n\ncorrect login, empty password\n\ncorrect login, no password property\n\nno login property, correct password\n\nempty body (none)\n\nempty json in body\n\nLIST in body\n\nwrong data type in login\n\nwrong data type in password\n\nrequest with xml\n\nbroken json body\n\nnot allowed method",
 					"event": [
 						{
@@ -544,11 +543,10 @@
 								]
 							}
 						}
-					],
-					"_postman_isSubFolder": true
+					]
 				}
 			],
-			"_postman_id": "f3709e90-3c1c-4976-b62c-50ed5f78e7ec"
+			"id": "f3709e90-3c1c-4976-b62c-50ed5f78e7ec"
 		},
 		{
 			"name": "users",
@@ -603,7 +601,7 @@
 									}
 								}
 							],
-							"_postman_id": "973844c0-c8a0-4f4f-bc88-6be4fe3a8cdb",
+							"id": "973844c0-c8a0-4f4f-bc88-6be4fe3a8cdb",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -759,8 +757,7 @@
 							]
 						}
 					],
-					"_postman_id": "db858bf0-9f83-4edb-a10b-9d1fa956e311",
-					"_postman_isSubFolder": true
+					"id": "db858bf0-9f83-4edb-a10b-9d1fa956e311"
 				},
 				{
 					"name": "Get users - negative",
@@ -779,7 +776,7 @@
 									}
 								}
 							],
-							"_postman_id": "5a9e4411-876a-48ba-a235-069fcebbe7ef",
+							"id": "5a9e4411-876a-48ba-a235-069fcebbe7ef",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -821,7 +818,7 @@
 									}
 								}
 							],
-							"_postman_id": "3e1d648c-70c2-4e11-b235-766678b718cd",
+							"id": "3e1d648c-70c2-4e11-b235-766678b718cd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -850,20 +847,154 @@
 							"response": []
 						}
 					],
-					"_postman_id": "42bf607e-56cd-4263-9076-a18c41fd8730",
-					"_postman_isSubFolder": true
+					"id": "42bf607e-56cd-4263-9076-a18c41fd8730"
 				},
 				{
 					"name": "Find user by ID",
-					"item": [],
-					"_postman_id": "4fb0eda6-9b16-42ac-abbf-7320d0e3cce4",
-					"_postman_isSubFolder": true
+					"item": [
+						{
+							"name": "Find user by ID",
+							"id": "35d3809b-1b4b-4700-8198-0f7d081821cb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "f658742e-0b07-4adc-823b-54aae3bd30a9",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								},
+								"description": "Returns a single user"
+							},
+							"response": [
+								{
+									"id": "b4ac1974-576d-4879-bb5a-3d966d0098c9",
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"email\": \"<email>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"id\": \"<number>\",\n  \"password\": \"<string>\"\n}"
+								},
+								{
+									"id": "88a32fff-a395-47be-bf41-f1c6507a20af",
+									"name": "Invalid user id supplied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "9e4529d9-c086-4929-b44a-383704096de7",
+									"name": "User not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "4fb0eda6-9b16-42ac-abbf-7320d0e3cce4"
 				},
 				{
 					"name": "Create user",
 					"item": [],
-					"_postman_id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755",
-					"_postman_isSubFolder": true
+					"id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755"
 				},
 				{
 					"name": "Delete user - positive",
@@ -889,7 +1020,7 @@
 											}
 										}
 									],
-									"_postman_id": "dbc133bd-f986-48c8-8063-2d69b73ac2da",
+									"id": "dbc133bd-f986-48c8-8063-2d69b73ac2da",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -984,7 +1115,7 @@
 											}
 										}
 									],
-									"_postman_id": "fe2f4263-a7a2-493a-b2c4-0ae330dcdb5f",
+									"id": "fe2f4263-a7a2-493a-b2c4-0ae330dcdb5f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -1009,8 +1140,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "{{userID}}",
-													"type": "string"
+													"value": "{{userID}}"
 												}
 											]
 										}
@@ -1041,7 +1171,7 @@
 											}
 										}
 									],
-									"_postman_id": "e06040b4-ebbe-436f-ac9b-7081bc2899fd",
+									"id": "e06040b4-ebbe-436f-ac9b-7081bc2899fd",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -1075,7 +1205,7 @@
 											}
 										}
 									],
-									"_postman_id": "67d7fc18-d69d-474e-a17f-cb2af6314b31",
+									"id": "67d7fc18-d69d-474e-a17f-cb2af6314b31",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -1099,8 +1229,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "{{userID}}",
-													"type": "string"
+													"value": "{{userID}}"
 												}
 											]
 										},
@@ -1109,15 +1238,13 @@
 									"response": []
 								}
 							],
-							"_postman_id": "2f0e5a30-b14b-4ccf-8469-7ee04ebf2f45",
-							"_postman_isSubFolder": true
+							"id": "2f0e5a30-b14b-4ccf-8469-7ee04ebf2f45"
 						}
 					],
-					"_postman_id": "087a7833-b627-468d-b847-2f4e89070f81",
-					"_postman_isSubFolder": true
+					"id": "087a7833-b627-468d-b847-2f4e89070f81"
 				}
 			],
-			"_postman_id": "4004895d-e9d2-4c19-a350-dbaf083e2efc"
+			"id": "4004895d-e9d2-4c19-a350-dbaf083e2efc"
 		}
 	],
 	"event": [
