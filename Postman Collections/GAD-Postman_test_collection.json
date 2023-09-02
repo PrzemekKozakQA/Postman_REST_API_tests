@@ -868,7 +868,7 @@
 											"    pm.expect(pm.response.json()).to.be.an('array').and.to.have.length.above(0);\r",
 											"    let userID = (_.first(pm.response.json())).id\r",
 											"    console.log(userID)\r",
-											"    pm.collectionVariables.set('userID')\r",
+											"    pm.collectionVariables.set('userID', userID)\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -1449,7 +1449,7 @@
 	],
 	"variable": [
 		{
-			"id": "6d861c0d-bbc5-4417-9ec8-38244ac18b6e",
+			"id": "7a22bdfa-815b-4760-a598-04fe62999213",
 			"key": "userID",
 			"value": ""
 		}
