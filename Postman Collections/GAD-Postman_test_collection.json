@@ -1032,6 +1032,44 @@
 						},
 						{
 							"name": "Find user by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2057f0da-9cd9-46e8-9a1d-fa30a637a02b",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"const Responseschema = {\r",
+											"    \"type\": \"object\",\r",
+											"    \"properties\": {\r",
+											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
+											"        \"email\": { \"type\": \"string\", nullable: false },\r",
+											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"password\": { \"type\": \"string\", nullable: false },\r",
+											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
+											"    },\r",
+											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has valid schema\", function () {\r",
+											"    pm.response.to.has.jsonSchema(Responseschema)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "35d3809b-1b4b-4700-8198-0f7d081821cb",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1055,9 +1093,8 @@
 									],
 									"variable": [
 										{
-											"id": "f658742e-0b07-4adc-823b-54aae3bd30a9",
 											"key": "id",
-											"value": "<integer>"
+											"value": "{{userID}}"
 										}
 									]
 								},
@@ -1449,7 +1486,7 @@
 	],
 	"variable": [
 		{
-			"id": "7a22bdfa-815b-4760-a598-04fe62999213",
+			"id": "78e21d4e-529c-41b2-83e0-5a49a351a1c9",
 			"key": "userID",
 			"value": ""
 		}
