@@ -1064,7 +1064,9 @@
 											"\r",
 											"pm.test(\"Response has valid schema\", function () {\r",
 											"    pm.response.to.has.jsonSchema(Responseschema)\r",
-											"});"
+											"});\r",
+											"\r",
+											"pm.collectionVariables.unset('userID')"
 										],
 										"type": "text/javascript"
 									}
@@ -1486,7 +1488,7 @@
 	],
 	"variable": [
 		{
-			"id": "78e21d4e-529c-41b2-83e0-5a49a351a1c9",
+			"id": "c0356b4c-6582-463a-a22e-98abd50a93a2",
 			"key": "userID",
 			"value": ""
 		}
