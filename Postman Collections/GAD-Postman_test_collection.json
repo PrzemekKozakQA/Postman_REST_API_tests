@@ -866,7 +866,8 @@
 											"\r",
 											"pm.test(\"Response is not an empty array\", function () {\r",
 											"    pm.expect(pm.response.json()).to.be.an('array').and.to.have.length.above(0);\r",
-											"    let userID = _.first(pm.response.json()).id\r",
+											"    let userID = (_.first(pm.response.json())).id\r",
+											"    console.log(userID)\r",
 											"    pm.collectionVariables.set('userID')\r",
 											"});"
 										],
@@ -1448,7 +1449,7 @@
 	],
 	"variable": [
 		{
-			"id": "b0f48b29-4ba7-4861-8b33-2e0dfdd49d9d",
+			"id": "95ba5ab5-e11b-45a4-8db4-b235466e639c",
 			"key": "userID",
 			"value": ""
 		}
