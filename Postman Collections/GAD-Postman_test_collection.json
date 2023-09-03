@@ -2332,6 +2332,44 @@
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "login with PATH method",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "697d57f1-9fe3-4667-943d-cc5cad639a5e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}"
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": []
 						}
 					],
 					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4"
