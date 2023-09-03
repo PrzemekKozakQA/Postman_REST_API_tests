@@ -2428,7 +2428,7 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "DELETE",
+								"method": "HEAD",
 								"header": [
 									{
 										"key": "Content-Type",
