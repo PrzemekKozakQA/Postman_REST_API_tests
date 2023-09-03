@@ -199,6 +199,151 @@
 					"name": "Login - negative",
 					"item": [
 						{
+							"name": "incorrect user e-mail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "58bb5a57-b0bf-4ff7-b2aa-8257b10b279d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "f75024e1-922d-4209-a836-cfae30ea1095",
+									"name": "incorrect user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 09:56:47 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ff467d65feec019-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
+						},
+						{
 							"name": "incorrect password",
 							"event": [
 								{
@@ -344,7 +489,7 @@
 							]
 						},
 						{
-							"name": "incorrect user e-mail",
+							"name": "empty e-mail",
 							"event": [
 								{
 									"listen": "test",
@@ -357,7 +502,7 @@
 									}
 								}
 							],
-							"id": "58bb5a57-b0bf-4ff7-b2aa-8257b10b279d",
+							"id": "8fbba8f1-0ad7-4415-9c4f-e3c258c83176",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -375,7 +520,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"wrong-password\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -387,8 +532,8 @@
 							},
 							"response": [
 								{
-									"id": "f75024e1-922d-4209-a836-cfae30ea1095",
-									"name": "incorrect user",
+									"id": "3f952c7c-41f7-4256-9a6b-68b20d7d7f31",
+									"name": "invalid password",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -403,7 +548,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\": \"Wrong-user\",\n    \"password\": \"{{userPassword}}\"\n}",
+											"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"wrong-password\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -419,7 +564,7 @@
 									"header": [
 										{
 											"key": "Date",
-											"value": "Thu, 31 Aug 2023 09:56:47 GMT"
+											"value": "Thu, 31 Aug 2023 09:37:04 GMT"
 										},
 										{
 											"key": "Content-Type",
@@ -435,7 +580,7 @@
 										},
 										{
 											"key": "CF-Ray",
-											"value": "7ff467d65feec019-WAW"
+											"value": "7ff44af36adafc67-WAW"
 										},
 										{
 											"key": "CF-Cache-Status",
