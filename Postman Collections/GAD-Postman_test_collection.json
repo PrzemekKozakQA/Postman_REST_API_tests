@@ -968,7 +968,7 @@
 							"response": [
 								{
 									"id": "3a368c20-4918-43b7-ad9a-6c98b01a27c8",
-									"name": "no password property Copy",
+									"name": "no login property",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
