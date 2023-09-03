@@ -2258,7 +2258,7 @@
 							"response": []
 						},
 						{
-							"name": "login with PUT method",
+							"name": "login with GET method",
 							"event": [
 								{
 									"listen": "test",
