@@ -2216,6 +2216,187 @@
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "Login as user to receive token Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has the required field - access_token\", function () {\r",
+											"    pm.expect(responseData.access_token).to.exist;\r",
+											"    //or\r",
+											"    pm.expect(responseData).has.property('access_token')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Data type of field - access_token is a string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"access_token is a non-empty string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"    pm.environment.set('token', responseData.access_token);\r",
+											"\r",
+											"    //import 'Moment' library\r",
+											"    const moment = require('moment');\r",
+											"    //setting the exact moment of generating a new token\r",
+											"    pm.environment.set('token_generation_moment', moment())\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "1b1cdbd1-a880-4ce3-b6cd-4d825d2143f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "e39f8bf1-2746-44c7-adfe-789e06812ec2",
+									"name": "Login as user to receive token",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 31 Aug 2023 08:15:09 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"name": "Content-Type",
+											"value": "application/json",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "7ff3d2f3ed6534b8-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bf-TQgzhcSg1Hinj1IpjBsk0r9pjho\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"access_token\": \"example-of-token\"\n}"
+								}
+							]
 						}
 					],
 					"id": "a71c1de1-b24a-4bfc-9ec3-02dd2e7fe2a5"
