@@ -3322,7 +3322,31 @@
 							]
 						}
 					],
-					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4"
+					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7a5a11cb-4c25-42ba-babc-586eda435bbb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b38b2e0-5cb2-405b-945e-d995460bfb48",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								]
+							}
+						}
+					]
 				}
 			],
 			"id": "f3709e90-3c1c-4976-b62c-50ed5f78e7ec"
