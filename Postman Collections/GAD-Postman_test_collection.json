@@ -1107,36 +1107,6 @@
 							},
 							"response": [
 								{
-									"id": "88a32fff-a395-47be-bf41-f1c6507a20af",
-									"name": "Invalid user id supplied",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/users/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
-								},
-								{
 									"id": "9e4529d9-c086-4929-b44a-383704096de7",
 									"name": "User not found",
 									"originalRequest": {
