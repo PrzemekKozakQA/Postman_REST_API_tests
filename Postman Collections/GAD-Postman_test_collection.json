@@ -1971,7 +1971,7 @@
 							]
 						},
 						{
-							"name": "xml in body",
+							"name": "login with xml",
 							"event": [
 								{
 									"listen": "test",
