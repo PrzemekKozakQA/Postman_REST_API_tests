@@ -533,7 +533,7 @@
 							"response": [
 								{
 									"id": "25172970-1903-4255-9920-ae14eefa0665",
-									"name": "incorrect password Copy",
+									"name": "empty e-mail",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
