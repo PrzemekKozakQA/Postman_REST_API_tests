@@ -2149,7 +2149,7 @@
 							]
 						},
 						{
-							"name": "xml in body Copy",
+							"name": "html in body Copy",
 							"event": [
 								{
 									"listen": "test",
