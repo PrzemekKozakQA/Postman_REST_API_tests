@@ -1210,7 +1210,56 @@
 				},
 				{
 					"name": "Create user",
-					"item": [],
+					"item": [
+						{
+							"name": "Create user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.collectionVariables.set('userID', pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "c5fc7fd7-a8ea-44b6-b881-1b9f75c78986",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"{{$randomEmail}}\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": []
+						}
+					],
 					"id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755"
 				},
 				{
