@@ -1656,5 +1656,12 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"id": "2e743fbe-65c4-4aa0-a3d8-602a6632b2fd",
+			"key": "userID",
+			"value": ""
+		}
 	]
 }
