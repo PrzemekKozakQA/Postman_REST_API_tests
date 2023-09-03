@@ -1250,6 +1250,10 @@
 											"    pm.response.to.has.jsonSchema(Responseschema)\r",
 											"});\r",
 											"\r",
+											"pm.test(\"Response contains correct user data\", function () {\r",
+											"    pm.expect(responseData.email).eqls(pm.variables.get('email'))\r",
+											"});\r",
+											"\r",
 											"pm.collectionVariables.set('userID', pm.response.json().id);"
 										],
 										"type": "text/javascript"
@@ -1260,7 +1264,11 @@
 									"script": {
 										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
 										"exec": [
-											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))"
+											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
+											"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
+											"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
+											"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
+											"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
 										],
 										"type": "text/javascript"
 									}
@@ -1284,7 +1292,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"email\": \"email\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
+									"raw": "{\n  \"email\": \"{{email}}\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1672,7 +1680,7 @@
 	],
 	"variable": [
 		{
-			"id": "6addb869-77b6-4817-a64a-6cb34939d9bf",
+			"id": "29dfe1f0-a8ee-4d99-9c54-df14d7d5e86b",
 			"key": "userID",
 			"value": ""
 		}
