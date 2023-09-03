@@ -1731,6 +1731,180 @@
 									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
 								}
 							]
+						},
+						{
+							"name": "login with xml",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has the required field - access_token\", function () {\r",
+											"    pm.expect(responseData.access_token).to.exist;\r",
+											"    //or\r",
+											"    pm.expect(responseData).has.property('access_token')\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Data type of field - access_token is a string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string');\r",
+											"});\r",
+											"\r",
+											"pm.test(\"access_token is a non-empty string\", function () {\r",
+											"    pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+											"    pm.environment.set('token', responseData.access_token);\r",
+											"\r",
+											"    //import 'Moment' library\r",
+											"    const moment = require('moment');\r",
+											"    //setting the exact moment of generating a new token\r",
+											"    pm.environment.set('token_generation_moment', moment())\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "50e0141c-007b-4bf2-87a1-45574c9c4f4e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									},
+									{
+										"key": "Accept",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "xml"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "593078f6-3360-4200-825d-12f2625fa75c",
+									"name": "xml in body",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											},
+											{
+												"key": "Accept",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "xml"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 03 Sep 2023 15:33:30 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "800f0d33ad953482-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
 						}
 					],
 					"id": "6af74126-034a-4066-ad04-9bb8c3d7cd1e",
@@ -1969,79 +2143,6 @@
 									"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Bad Request</pre>\n    </body>\n</html>"
 								}
 							]
-						},
-						{
-							"name": "login with xml",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
-										"exec": [
-											"let responseData;\r",
-											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response is in JSON format\", function () {\r",
-											"    pm.response.to.be.json;\r",
-											"    responseData = pm.response.json()\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response has the required field - access_token\", function () {\r",
-											"    pm.expect(responseData.access_token).to.exist;\r",
-											"    //or\r",
-											"    pm.expect(responseData).has.property('access_token')\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Data type of field - access_token is a string\", function () {\r",
-											"    pm.expect(responseData.access_token).to.be.a('string');\r",
-											"});\r",
-											"\r",
-											"pm.test(\"access_token is a non-empty string\", function () {\r",
-											"    pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
-											"    pm.environment.set('token', responseData.access_token);\r",
-											"\r",
-											"    //import 'Moment' library\r",
-											"    const moment = require('moment');\r",
-											"    //setting the exact moment of generating a new token\r",
-											"    pm.environment.set('token_generation_moment', moment())\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "50e0141c-007b-4bf2-87a1-45574c9c4f4e",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/xml"
-									},
-									{
-										"key": "Accept",
-										"value": "application/xml"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "xml"
-										}
-									}
-								},
-								"url": "{{baseUrl}}/login"
-							},
-							"response": []
 						},
 						{
 							"name": "html in body Copy",
