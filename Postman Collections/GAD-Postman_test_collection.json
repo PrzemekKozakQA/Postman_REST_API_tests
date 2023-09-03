@@ -1631,7 +1631,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"login\": {{userEmail}},\r\n    \"password\": true\r\n}"
+									"raw": "{\r\n    \"login\": \"{{userEmail}}\",\r\n    \"password\": true\r\n}"
 								},
 								"url": "{{baseUrl}}/login"
 							},
