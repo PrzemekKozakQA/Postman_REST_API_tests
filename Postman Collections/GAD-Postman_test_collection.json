@@ -2446,6 +2446,44 @@
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "Send OPTIONS on login Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "01107929-0ed7-4144-94c8-8862c1ce4f62",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}"
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": []
 						}
 					],
 					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4"
