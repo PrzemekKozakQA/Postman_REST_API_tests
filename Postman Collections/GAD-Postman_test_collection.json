@@ -1733,7 +1733,7 @@
 							]
 						},
 						{
-							"name": "login with xml",
+							"name": "login with xml in body",
 							"event": [
 								{
 									"listen": "test",
