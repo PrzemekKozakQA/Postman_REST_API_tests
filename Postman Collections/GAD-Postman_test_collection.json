@@ -520,7 +520,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"wrong-password\"\n}",
+									"raw": "{\n    \"email\": \"\",\n    \"password\": \"{{userPassword}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
