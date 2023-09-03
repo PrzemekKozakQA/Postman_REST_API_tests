@@ -1223,6 +1223,10 @@
 										"value": "application/json"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
 								"url": "{{baseUrl}}/login"
 							},
 							"response": [
