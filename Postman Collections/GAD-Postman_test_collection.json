@@ -2256,6 +2256,40 @@
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
+						},
+						{
+							"name": "login with PUT method",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "92f047b3-214b-456b-b627-23e7ed478743",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/login"
+							},
+							"response": []
 						}
 					],
 					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4"
