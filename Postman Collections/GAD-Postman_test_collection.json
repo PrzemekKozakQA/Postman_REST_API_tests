@@ -2022,11 +2022,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": "application/xml"
 									},
 									{
 										"key": "Accept",
-										"value": "application/json"
+										"value": "application/xml"
 									}
 								],
 								"body": {
