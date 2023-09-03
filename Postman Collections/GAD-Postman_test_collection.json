@@ -2216,9 +2216,15 @@
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
-						},
+						}
+					],
+					"id": "a71c1de1-b24a-4bfc-9ec3-02dd2e7fe2a5"
+				},
+				{
+					"name": "login with wrong method",
+					"item": [
 						{
-							"name": "Login as user to receive token Copy",
+							"name": "login with GET method",
 							"event": [
 								{
 									"listen": "test",
@@ -2399,11 +2405,6 @@
 							]
 						}
 					],
-					"id": "a71c1de1-b24a-4bfc-9ec3-02dd2e7fe2a5"
-				},
-				{
-					"name": "login with wrong method",
-					"item": [],
 					"id": "d8ef42c5-f1ce-4bb8-b841-b8409619dde4"
 				}
 			],
