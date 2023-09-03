@@ -2209,11 +2209,11 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
+									"raw": "<!DOCTYPE html>\n<html>\n\n<head>\n\t<title>Page Title</title>\n</head>\n\n<body>\n\n\t<h1>This is a Heading</h1>\n\t<p>This is a paragraph.</p>\n\n</body>\n\n</html>",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
-											"language": "xml"
+											"language": "html"
 										}
 									}
 								},
