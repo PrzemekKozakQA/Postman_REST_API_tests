@@ -1,7 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Automated API tests using Postman CLI
-
+name: Automated API tests using Newman
 # Controls when the workflow will run
 on: workflow_dispatch
 
