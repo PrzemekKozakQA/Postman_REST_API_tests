@@ -2224,6 +2224,44 @@
 					"name": "login with wrong method",
 					"item": [
 						{
+							"name": "login with GET method",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a36bf598-9e7e-4b12-b86b-37da8caccc9a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "92f047b3-214b-456b-b627-23e7ed478743",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}"
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": []
+						},
+						{
 							"name": "login with GET method and empty body",
 							"event": [
 								{
@@ -2258,7 +2296,7 @@
 							"response": []
 						},
 						{
-							"name": "login with GET method",
+							"name": "login with PUT method",
 							"event": [
 								{
 									"listen": "test",
@@ -2271,7 +2309,7 @@
 									}
 								}
 							],
-							"id": "92f047b3-214b-456b-b627-23e7ed478743",
+							"id": "28a2eb50-419d-40f0-8db8-46b5ff3b96de",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
