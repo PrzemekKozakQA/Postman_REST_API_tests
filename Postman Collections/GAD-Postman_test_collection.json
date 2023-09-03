@@ -1908,7 +1908,7 @@
 						}
 					],
 					"id": "6af74126-034a-4066-ad04-9bb8c3d7cd1e",
-					"description": "> incorrect login, password \n  \n> correct login, incorrect password \n  \n> empty login, corect password \n  \n> correct login, empty password \n  \n> correct login, no password property \n  \n> no login property, password \n  \n> empty body (none) \n  \n> empty json in body \n  \n> LIST in body \n  \n> wrong data type in login \n  \n> wrong data type in password \n  \n\nrequest with xml\n\nbroken json body\n\nnot allowed method\n\nWrong header",
+					"description": "> incorrect login, password \n  \n> correct login, incorrect password \n  \n> empty login, corect password \n  \n> correct login, empty password \n  \n> correct login, no password property \n  \n> no login property, password \n  \n> empty body (none) \n  \n> empty json in body \n  \n> LIST in body \n  \n> wrong data type in login \n  \n> wrong data type in password \n  \n> request with xml \n  \n> broken json body \n  \n\nnot allowed method\n\n> Wrong header",
 					"event": [
 						{
 							"listen": "prerequest",
