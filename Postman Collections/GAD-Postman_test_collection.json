@@ -2189,7 +2189,33 @@
 							"response": []
 						}
 					],
-					"id": "a71c1de1-b24a-4bfc-9ec3-02dd2e7fe2a5"
+					"id": "a71c1de1-b24a-4bfc-9ec3-02dd2e7fe2a5",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d564500c-154a-45d6-8d8b-0fdaa2a5722e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8ca6bcf-bfce-46cc-8cc9-a00e0fa8feb3",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "login with wrong method",
