@@ -1296,7 +1296,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"email\": \"{{email}}\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
+									"raw": "{\n    \"email\": \"{{email}}\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1684,7 +1684,7 @@
 	],
 	"variable": [
 		{
-			"id": "ac9a0c73-bad1-4208-bef7-3a2c72e05f74",
+			"id": "bb4c4968-5f7a-469c-a315-9e9aa0f36cae",
 			"key": "userID",
 			"value": ""
 		}
