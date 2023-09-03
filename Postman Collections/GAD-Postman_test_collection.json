@@ -2145,7 +2145,7 @@
 							]
 						},
 						{
-							"name": "html in body Copy",
+							"name": "json in header, html in body",
 							"event": [
 								{
 									"listen": "test",
