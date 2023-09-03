@@ -779,7 +779,7 @@
 							]
 						},
 						{
-							"name": "empty password Copy",
+							"name": "no password property",
 							"event": [
 								{
 									"listen": "test",
