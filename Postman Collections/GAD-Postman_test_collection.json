@@ -2287,6 +2287,10 @@
 										"value": "application/json"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{userEmail}}\",\r\n    \"password\": \"{{userPassword}}\"\r\n}"
+								},
 								"url": "{{baseUrl}}/login"
 							},
 							"response": []
