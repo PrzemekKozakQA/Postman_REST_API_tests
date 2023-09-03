@@ -1254,6 +1254,16 @@
 										],
 										"type": "text/javascript"
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
+										"exec": [
+											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))"
+										],
+										"type": "text/javascript"
+									}
 								}
 							],
 							"id": "c5fc7fd7-a8ea-44b6-b881-1b9f75c78986",
@@ -1274,7 +1284,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"email\": \"{{$randomEmail}}\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
+									"raw": "{\n  \"email\": \"email\",\n  \"firstname\": \"{{$randomFirstName}}\",\n  \"lastname\": \"{{$randomLastName}}\",\n  \"avatar\": \"{{$randomAvatarImage}}\",\n  \"password\": \"{{$randomPassword}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1662,7 +1672,7 @@
 	],
 	"variable": [
 		{
-			"id": "31549f68-5a4f-46dc-a7d7-564e3bc7ea3b",
+			"id": "3c6589cc-b02d-4f0f-a4a0-48eaa6040e91",
 			"key": "userID",
 			"value": ""
 		}
