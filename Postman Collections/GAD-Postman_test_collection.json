@@ -1504,7 +1504,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json"
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
 											},
 											{
 												"key": "Accept",
@@ -1513,7 +1515,12 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n        \"login\": true,\r\n        \"password\": \"{{userPassword}}\"\r\n    }"
+											"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
 										},
 										"url": "{{baseUrl}}/login"
 									},
