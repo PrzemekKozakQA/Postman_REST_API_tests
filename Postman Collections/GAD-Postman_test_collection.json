@@ -1491,7 +1491,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n        \"login\": true,\r\n        \"password\": \"{{userPassword}}\"\r\n    }"
+									"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}"
 								},
 								"url": "{{baseUrl}}/login"
 							},
