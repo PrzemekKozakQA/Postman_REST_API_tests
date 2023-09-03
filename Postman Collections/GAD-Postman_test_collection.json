@@ -1793,7 +1793,7 @@
 					"name": "login with broken body request - negative",
 					"item": [
 						{
-							"name": "Login as user to receive token Copy",
+							"name": "broken json",
 							"event": [
 								{
 									"listen": "test",
