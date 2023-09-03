@@ -1644,7 +1644,9 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json"
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
 											},
 											{
 												"key": "Accept",
@@ -1653,7 +1655,12 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n        \"login\": {{userEmail}},\r\n        \"password\": true\r\n    }"
+											"raw": "{\r\n    \"login\": {{userEmail}},\r\n    \"password\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
 										},
 										"url": "{{baseUrl}}/login"
 									},
