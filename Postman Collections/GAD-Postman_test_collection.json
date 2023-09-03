@@ -634,7 +634,7 @@
 							]
 						},
 						{
-							"name": "empty e-mail Copy",
+							"name": "empty password",
 							"event": [
 								{
 									"listen": "test",
