@@ -1142,7 +1142,7 @@
 					"id": "42bf607e-56cd-4263-9076-a18c41fd8730"
 				},
 				{
-					"name": "Find user by ID",
+					"name": "Find user by ID - positive",
 					"item": [
 						{
 							"name": "Get all users list",
