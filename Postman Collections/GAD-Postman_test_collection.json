@@ -2031,11 +2031,11 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": {{userPassword}}\n}",
+									"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
-											"language": "json"
+											"language": "xml"
 										}
 									}
 								},
