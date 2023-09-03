@@ -1367,7 +1367,9 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});"
+											"});\r",
+											"\r",
+											"pm.collectionVariables.unset('userID')"
 										],
 										"type": "text/javascript"
 									}
@@ -1684,7 +1686,7 @@
 	],
 	"variable": [
 		{
-			"id": "0fc0d7f6-1ac9-47b6-a320-3cdae35f3166",
+			"id": "54e51e1b-ed8b-40c1-aae3-d1333b62888f",
 			"key": "userID",
 			"value": ""
 		}
