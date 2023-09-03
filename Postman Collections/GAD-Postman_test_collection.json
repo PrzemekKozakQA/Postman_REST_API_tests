@@ -1806,7 +1806,7 @@
 							"response": [
 								{
 									"id": "593078f6-3360-4200-825d-12f2625fa75c",
-									"name": "xml in body",
+									"name": "login with xml in body",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
