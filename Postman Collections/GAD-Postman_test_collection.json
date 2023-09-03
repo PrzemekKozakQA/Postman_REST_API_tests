@@ -1219,8 +1219,32 @@
 									"script": {
 										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
 										"exec": [
+											"let responseData;\r",
+											"\r",
+											"const Responseschema = {\r",
+											"    \"type\": \"object\",\r",
+											"    \"properties\": {\r",
+											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
+											"        \"email\": { \"type\": \"string\", nullable: false },\r",
+											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"password\": { \"type\": \"string\", nullable: false },\r",
+											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
+											"    },\r",
+											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+											"}\r",
+											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json()\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has valid schema\", function () {\r",
+											"    pm.response.to.has.jsonSchema(Responseschema)\r",
 											"});\r",
 											"\r",
 											"pm.collectionVariables.set('userID', pm.response.json().id);"
@@ -1635,7 +1659,7 @@
 	],
 	"variable": [
 		{
-			"id": "221d0e7f-6bdb-4b6d-a3ac-862f3347cca5",
+			"id": "d5f98593-f21d-4113-a149-95adbfaff1f1",
 			"key": "userID",
 			"value": ""
 		}
