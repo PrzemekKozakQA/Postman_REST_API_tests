@@ -2044,7 +2044,7 @@
 							"response": [
 								{
 									"id": "5dcb4109-abb8-4c96-9374-1c7b92abb967",
-									"name": "broken json Copy",
+									"name": "xml in body",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
