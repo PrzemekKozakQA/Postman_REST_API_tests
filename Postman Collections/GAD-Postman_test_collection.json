@@ -3324,7 +3324,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e5308701-7259-435c-b3a2-ce6390527ca9",
+								"id": "20a1e635-382a-4eba-89f5-2484ad1e4636",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -3334,18 +3334,12 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bfc50c87-43da-4237-b518-98c3d567fb1f",
+								"id": "91081d55-fed3-4b7b-8cdd-3c9f4286470d",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 404\", function () {",
 									"    pm.response.to.have.status(404);",
-									"});",
-									"",
-									"pm.test(\"Response does not contain any data\", function () {",
-									"    pm.response.text().to.have.length.belove(2);",
-									"});",
-									"",
-									""
+									"});"
 								]
 							}
 						}
