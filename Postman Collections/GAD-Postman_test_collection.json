@@ -1235,7 +1235,7 @@
 											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
 											"    },\r",
 											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
-											"}\r",
+											"};\r",
 											"\r",
 											"pm.test(\"Status code is 201\", function () {\r",
 											"    pm.response.to.have.status(201);\r",
@@ -1243,15 +1243,19 @@
 											"\r",
 											"pm.test(\"Response is in JSON format\", function () {\r",
 											"    pm.response.to.be.json;\r",
-											"    responseData = pm.response.json()\r",
+											"    responseData = pm.response.json();\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Response has valid schema\", function () {\r",
-											"    pm.response.to.has.jsonSchema(Responseschema)\r",
+											"    pm.response.to.has.jsonSchema(Responseschema);\r",
 											"});\r",
 											"\r",
 											"pm.test(\"Response contains correct user data\", function () {\r",
-											"    pm.expect(responseData.email).eqls(pm.variables.get('email'))\r",
+											"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
+											"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
+											"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
+											"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
+											"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
 											"});\r",
 											"\r",
 											"pm.collectionVariables.set('userID', pm.response.json().id);"
@@ -1680,7 +1684,7 @@
 	],
 	"variable": [
 		{
-			"id": "29dfe1f0-a8ee-4d99-9c54-df14d7d5e86b",
+			"id": "f331fc1b-75e8-439f-87bf-125976527a9a",
 			"key": "userID",
 			"value": ""
 		}
