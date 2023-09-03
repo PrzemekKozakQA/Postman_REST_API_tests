@@ -810,7 +810,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"\"\n}",
+									"raw": "{\n    \"email\": \"{{userEmail}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
