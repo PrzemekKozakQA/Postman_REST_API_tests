@@ -812,7 +812,9 @@
 									"script": {
 										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
 										],
 										"type": "text/javascript"
 									}
