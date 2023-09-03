@@ -1107,46 +1107,6 @@
 							},
 							"response": [
 								{
-									"id": "b4ac1974-576d-4879-bb5a-3d966d0098c9",
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/users/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n  \"email\": \"<email>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"id\": \"<number>\",\n  \"password\": \"<string>\"\n}"
-								},
-								{
 									"id": "88a32fff-a395-47be-bf41-f1c6507a20af",
 									"name": "Invalid user id supplied",
 									"originalRequest": {
