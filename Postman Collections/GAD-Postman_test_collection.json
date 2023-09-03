@@ -2224,7 +2224,7 @@
 					"name": "login with wrong method",
 					"item": [
 						{
-							"name": "login with GET method",
+							"name": "login with GET method and empty body",
 							"event": [
 								{
 									"listen": "test",
