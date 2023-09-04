@@ -4560,5 +4560,12 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"id": "4be4d208-abb1-466a-96f8-d88423a42ae4",
+			"key": "userID",
+			"value": ""
+		}
 	]
 }
