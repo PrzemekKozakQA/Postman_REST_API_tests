@@ -3906,7 +3906,10 @@
 							},
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
 								},
 								"method": "PATCH",
 								"header": [
@@ -3917,7 +3920,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"email\": \"****\",\r\n        \"firstname\": \"Moses\",\r\n        \"lastname\": \"****\",\r\n        \"password\": \"****\",\r\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n    }\r\n]",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"****\",\r\n    \"firstname\": \"Moses\",\r\n    \"lastname\": \"****\",\r\n    \"password\": \"****\",\r\n    \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
