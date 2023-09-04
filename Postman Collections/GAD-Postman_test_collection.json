@@ -3732,6 +3732,406 @@
 					"id": "42bf607e-56cd-4263-9076-a18c41fd8730"
 				},
 				{
+					"name": "Create user - positive",
+					"item": [
+						{
+							"name": "Create user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"const Responseschema = {\r",
+											"    \"type\": \"object\",\r",
+											"    \"properties\": {\r",
+											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
+											"        \"email\": { \"type\": \"string\", nullable: false },\r",
+											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"password\": { \"type\": \"string\", nullable: false },\r",
+											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
+											"    },\r",
+											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+											"};\r",
+											"\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has valid schema\", function () {\r",
+											"    pm.response.to.has.jsonSchema(Responseschema);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains correct user data\", function () {\r",
+											"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
+											"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
+											"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
+											"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
+											"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
+											"});\r",
+											"\r",
+											"pm.collectionVariables.set('userID', pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
+										"exec": [
+											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
+											"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
+											"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
+											"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
+											"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "c5fc7fd7-a8ea-44b6-b881-1b9f75c78986",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{email}}\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a user",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e621036f-e3bf-4123-8cf9-d342471e7174",
+										"exec": [
+											"const moment = require('moment');\r",
+											"const baseURL = pm.variables.get(\"baseUrl\");\r",
+											"var token = pm.variables.get(\"token\");\r",
+											"const login = 'admin' //pm.variables.get(\"login\");\r",
+											"const password = 'admin' //pm.variables.get(\"password\");\r",
+											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+											"\r",
+											"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
+											"\r",
+											"if (!token || isTokenExpired) {\r",
+											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"\r",
+											"    const options =\r",
+											"    {\r",
+											"        url: baseURL + \"/login\",\r",
+											"        method: 'POST',\r",
+											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+											"        body: {\r",
+											"            mode: 'raw',\r",
+											"            raw: JSON.stringify(\r",
+											"                {\r",
+											"                    \"email\": login,\r",
+											"                    \"password\": password\r",
+											"                }\r",
+											"            )\r",
+											"        }\r",
+											"    };\r",
+											"\r",
+											"    pm.sendRequest(options, function (err, res) {\r",
+											"        if (err) {\r",
+											"            console.log(err);\r",
+											"        }\r",
+											"        else {\r",
+											"            var jsonData = res.json();\r",
+											"            pm.environment.set(\"token\", jsonData.access_token);\r",
+											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"};"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "91a9e471-8fd7-4758-8499-9386b375cd82",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.collectionVariables.unset('userID')"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "f5ad09a6-d08a-40a8-9dcf-91ff4d55c335",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a45a5573-a014-42d5-a2a3-c1422fc5b03a",
+											"key": "id",
+											"value": "{{userID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755"
+				},
+				{
+					"name": "Create user - negative",
+					"item": [
+						{
+							"name": "Create user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
+										"exec": [
+											"let responseData;\r",
+											"\r",
+											"const Responseschema = {\r",
+											"    \"type\": \"object\",\r",
+											"    \"properties\": {\r",
+											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
+											"        \"email\": { \"type\": \"string\", nullable: false },\r",
+											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
+											"        \"password\": { \"type\": \"string\", nullable: false },\r",
+											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
+											"    },\r",
+											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+											"};\r",
+											"\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is in JSON format\", function () {\r",
+											"    pm.response.to.be.json;\r",
+											"    responseData = pm.response.json();\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response has valid schema\", function () {\r",
+											"    pm.response.to.has.jsonSchema(Responseschema);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains correct user data\", function () {\r",
+											"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
+											"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
+											"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
+											"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
+											"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
+											"});\r",
+											"\r",
+											"pm.collectionVariables.set('userID', pm.response.json().id);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
+										"exec": [
+											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
+											"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
+											"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
+											"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
+											"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "3ac92a40-b41a-4703-ad0e-85d532a685ab",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{email}}\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a user",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e621036f-e3bf-4123-8cf9-d342471e7174",
+										"exec": [
+											"const moment = require('moment');\r",
+											"const baseURL = pm.variables.get(\"baseUrl\");\r",
+											"var token = pm.variables.get(\"token\");\r",
+											"const login = 'admin' //pm.variables.get(\"login\");\r",
+											"const password = 'admin' //pm.variables.get(\"password\");\r",
+											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+											"\r",
+											"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
+											"\r",
+											"if (!token || isTokenExpired) {\r",
+											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"\r",
+											"    const options =\r",
+											"    {\r",
+											"        url: baseURL + \"/login\",\r",
+											"        method: 'POST',\r",
+											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+											"        body: {\r",
+											"            mode: 'raw',\r",
+											"            raw: JSON.stringify(\r",
+											"                {\r",
+											"                    \"email\": login,\r",
+											"                    \"password\": password\r",
+											"                }\r",
+											"            )\r",
+											"        }\r",
+											"    };\r",
+											"\r",
+											"    pm.sendRequest(options, function (err, res) {\r",
+											"        if (err) {\r",
+											"            console.log(err);\r",
+											"        }\r",
+											"        else {\r",
+											"            var jsonData = res.json();\r",
+											"            pm.environment.set(\"token\", jsonData.access_token);\r",
+											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"};"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "91a9e471-8fd7-4758-8499-9386b375cd82",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.collectionVariables.unset('userID')"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "af3f53fd-7a1a-48b7-b484-a0ae3651f7fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a45a5573-a014-42d5-a2a3-c1422fc5b03a",
+											"key": "id",
+											"value": "{{userID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "fc2c8638-a22a-45f0-a2d5-471579a92e78"
+				},
+				{
 					"name": "Find user by ID - positive",
 					"item": [
 						{
@@ -3987,206 +4387,6 @@
 						}
 					],
 					"id": "4fb0eda6-9b16-42ac-abbf-7320d0e3cce4"
-				},
-				{
-					"name": "Create user - positive",
-					"item": [
-						{
-							"name": "Create user",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
-										"exec": [
-											"let responseData;\r",
-											"\r",
-											"const Responseschema = {\r",
-											"    \"type\": \"object\",\r",
-											"    \"properties\": {\r",
-											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
-											"        \"email\": { \"type\": \"string\", nullable: false },\r",
-											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
-											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
-											"        \"password\": { \"type\": \"string\", nullable: false },\r",
-											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
-											"    },\r",
-											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
-											"};\r",
-											"\r",
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response is in JSON format\", function () {\r",
-											"    pm.response.to.be.json;\r",
-											"    responseData = pm.response.json();\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response has valid schema\", function () {\r",
-											"    pm.response.to.has.jsonSchema(Responseschema);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response contains correct user data\", function () {\r",
-											"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
-											"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
-											"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
-											"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
-											"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
-											"});\r",
-											"\r",
-											"pm.collectionVariables.set('userID', pm.response.json().id);"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
-										"exec": [
-											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
-											"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
-											"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
-											"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
-											"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "c5fc7fd7-a8ea-44b6-b881-1b9f75c78986",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{email}}\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{baseUrl}}/users"
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a user",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "e621036f-e3bf-4123-8cf9-d342471e7174",
-										"exec": [
-											"const moment = require('moment');\r",
-											"const baseURL = pm.variables.get(\"baseUrl\");\r",
-											"var token = pm.variables.get(\"token\");\r",
-											"const login = 'admin' //pm.variables.get(\"login\");\r",
-											"const password = 'admin' //pm.variables.get(\"password\");\r",
-											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
-											"\r",
-											"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
-											"\r",
-											"if (!token || isTokenExpired) {\r",
-											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
-											"\r",
-											"    const options =\r",
-											"    {\r",
-											"        url: baseURL + \"/login\",\r",
-											"        method: 'POST',\r",
-											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
-											"        body: {\r",
-											"            mode: 'raw',\r",
-											"            raw: JSON.stringify(\r",
-											"                {\r",
-											"                    \"email\": login,\r",
-											"                    \"password\": password\r",
-											"                }\r",
-											"            )\r",
-											"        }\r",
-											"    };\r",
-											"\r",
-											"    pm.sendRequest(options, function (err, res) {\r",
-											"        if (err) {\r",
-											"            console.log(err);\r",
-											"        }\r",
-											"        else {\r",
-											"            var jsonData = res.json();\r",
-											"            pm.environment.set(\"token\", jsonData.access_token);\r",
-											"            pm.environment.set(\"token_generation_moment\", moment());\r",
-											"        }\r",
-											"    });\r",
-											"\r",
-											"};"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "91a9e471-8fd7-4758-8499-9386b375cd82",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.collectionVariables.unset('userID')"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "f5ad09a6-d08a-40a8-9dcf-91ff4d55c335",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
-								},
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/users/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "a45a5573-a014-42d5-a2a3-c1422fc5b03a",
-											"key": "id",
-											"value": "{{userID}}"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"id": "6586e9cb-2dc3-4e57-af5c-175bb76cb755"
 				},
 				{
 					"name": "Delete user - positive",
