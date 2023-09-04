@@ -4102,7 +4102,7 @@
 										"token": "{{token}}"
 									}
 								},
-								"method": "PATCH",
+								"method": "PUT",
 								"header": [
 									{
 										"key": "Accept",
