@@ -4566,7 +4566,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "81343b87-9718-4f3b-8bb8-28253328bbd2",
+				"id": "794e23d9-5adc-45f1-be38-abeb6d4b2f7c",
 				"type": "text/javascript",
 				"exec": [
 					"console.info('Running request: ' + pm.info.requestName);"
@@ -4576,7 +4576,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "739fa568-af14-4cdc-8f32-13d61d51afbd",
+				"id": "f76ddd59-c1b7-49d6-8232-f6650a241049",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -4586,9 +4586,9 @@
 	],
 	"variable": [
 		{
-			"id": "637f513c-3b50-49e4-a2cd-39b66d7fa417",
+			"id": "f81ae290-8677-44b2-b842-1de06bab7d64",
 			"key": "userID",
-			"value": ""
+			"value": null
 		}
 	]
 }
