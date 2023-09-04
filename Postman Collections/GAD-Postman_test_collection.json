@@ -3936,7 +3936,102 @@
 					"item": [
 						{
 							"name": "Invalid email",
-							"item": [],
+							"item": [
+								{
+									"name": "Create user with incorrect email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
+												"exec": [
+													"let responseData;\r",
+													"\r",
+													"const Responseschema = {\r",
+													"    \"type\": \"object\",\r",
+													"    \"properties\": {\r",
+													"        \"id\": { \"type\": \"integer\", nullable: false },\r",
+													"        \"email\": { \"type\": \"string\", nullable: false },\r",
+													"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
+													"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
+													"        \"password\": { \"type\": \"string\", nullable: false },\r",
+													"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
+													"    },\r",
+													"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
+													"};\r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response is in JSON format\", function () {\r",
+													"    pm.response.to.be.json;\r",
+													"    responseData = pm.response.json();\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has valid schema\", function () {\r",
+													"    pm.response.to.has.jsonSchema(Responseschema);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains correct user data\", function () {\r",
+													"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
+													"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
+													"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
+													"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
+													"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
+													"});\r",
+													"\r",
+													"pm.collectionVariables.set('userID', pm.response.json().id);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
+												"exec": [
+													"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
+													"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
+													"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
+													"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
+													"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3ac92a40-b41a-4703-ad0e-85d532a685ab",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"admin.gmail.com\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/users"
+									},
+									"response": []
+								}
+							],
 							"id": "ddcba784-2c4b-4b70-8ffb-7d90c9504135"
 						},
 						{
@@ -3958,100 +4053,6 @@
 							"name": "invalid password",
 							"item": [],
 							"id": "21ccd236-9e66-40da-b933-655fdc979579"
-						},
-						{
-							"name": "Create user with incorrect email",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
-										"exec": [
-											"let responseData;\r",
-											"\r",
-											"const Responseschema = {\r",
-											"    \"type\": \"object\",\r",
-											"    \"properties\": {\r",
-											"        \"id\": { \"type\": \"integer\", nullable: false },\r",
-											"        \"email\": { \"type\": \"string\", nullable: false },\r",
-											"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
-											"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
-											"        \"password\": { \"type\": \"string\", nullable: false },\r",
-											"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
-											"    },\r",
-											"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
-											"};\r",
-											"\r",
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response is in JSON format\", function () {\r",
-											"    pm.response.to.be.json;\r",
-											"    responseData = pm.response.json();\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response has valid schema\", function () {\r",
-											"    pm.response.to.has.jsonSchema(Responseschema);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response contains correct user data\", function () {\r",
-											"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
-											"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
-											"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
-											"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
-											"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
-											"});\r",
-											"\r",
-											"pm.collectionVariables.set('userID', pm.response.json().id);"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
-										"exec": [
-											"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
-											"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
-											"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
-											"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
-											"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "3ac92a40-b41a-4703-ad0e-85d532a685ab",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"admin.gmail.com\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{baseUrl}}/users"
-							},
-							"response": []
 						}
 					],
 					"id": "fc2c8638-a22a-45f0-a2d5-471579a92e78"
@@ -4588,7 +4589,7 @@
 	],
 	"variable": [
 		{
-			"id": "8fe30bbc-5c73-4a07-a57c-177fb767b825",
+			"id": "e1187454-325d-4259-9f15-5168b86f754d",
 			"key": "userID",
 			"value": ""
 		}
