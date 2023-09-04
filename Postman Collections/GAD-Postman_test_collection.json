@@ -3935,7 +3935,7 @@
 					"name": "Create user - negative",
 					"item": [
 						{
-							"name": "New Folder",
+							"name": "Invalid email",
 							"item": [],
 							"id": "ddcba784-2c4b-4b70-8ffb-7d90c9504135"
 						},
@@ -4568,7 +4568,7 @@
 	],
 	"variable": [
 		{
-			"id": "8af93f1f-7110-4033-8fb2-496069245d5b",
+			"id": "ec1d335c-376b-4693-957f-46eef2c5fdd2",
 			"key": "userID",
 			"value": ""
 		}
