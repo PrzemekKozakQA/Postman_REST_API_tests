@@ -3935,6 +3935,11 @@
 					"name": "Create user - negative",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "ddcba784-2c4b-4b70-8ffb-7d90c9504135"
+						},
+						{
 							"name": "Create user with incorrect email",
 							"event": [
 								{
@@ -4563,7 +4568,7 @@
 	],
 	"variable": [
 		{
-			"id": "bce0d948-da2d-423a-91c6-cd1fd10aeb45",
+			"id": "8af93f1f-7110-4033-8fb2-496069245d5b",
 			"key": "userID",
 			"value": ""
 		}
