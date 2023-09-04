@@ -4074,6 +4074,197 @@
 									"body": "{\n    \"error\": {\n        \"message\": \"Bad request - malformed JSON\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "DELETE  on users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "505e2627-abd3-4e86-90e0-800a7448964b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"****\",\r\n    \"firstname\": \"Moses\",\r\n    \"lastname\": \"****\",\r\n    \"password\": \"****\",\r\n    \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/users"
+							},
+							"response": [
+								{
+									"id": "2ce7e424-b6a4-4be2-b2b0-4058bebefb89",
+									"name": "PATCH list on users",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"email\": \"****\",\r\n        \"firstname\": \"Moses\",\r\n        \"lastname\": \"****\",\r\n        \"password\": \"****\",\r\n        \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/users"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 03 Sep 2023 13:28:12 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "800e55a618b53bc0-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"42-CC26blfv63ORXOELcqBmnBgvWC0\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "cross-origin-embedder-policy",
+											"value": "require-corp"
+										},
+										{
+											"key": "cross-origin-opener-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "cross-origin-resource-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "origin-agent-cluster",
+											"value": "?1"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": {\n        \"message\": \"Bad request - malformed JSON\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "42bf607e-56cd-4263-9076-a18c41fd8730"
