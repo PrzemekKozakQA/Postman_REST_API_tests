@@ -3889,7 +3889,7 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
-											"pm.collectionVariables.unset('userID')"
+											"pm.collectionVariables.unset('userID');"
 										],
 										"type": "text/javascript"
 									}
@@ -4586,7 +4586,7 @@
 	],
 	"variable": [
 		{
-			"id": "f81ae290-8677-44b2-b842-1de06bab7d64",
+			"id": "d7c08be8-3427-4d33-b35c-aa4a3a51a711",
 			"key": "userID",
 			"value": null
 		}
