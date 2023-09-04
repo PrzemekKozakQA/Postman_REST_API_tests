@@ -3950,6 +3950,11 @@
 							"id": "cc5c4c38-9ad0-4180-913f-d864ebb8dcf1"
 						},
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "3846da32-75de-464a-be1e-1d6e53cfa856"
+						},
+						{
 							"name": "Create user with incorrect email",
 							"event": [
 								{
@@ -4578,7 +4583,7 @@
 	],
 	"variable": [
 		{
-			"id": "c29b0330-bc73-451a-aaad-408cc5e5dff3",
+			"id": "02925b0d-e5e1-40f4-8504-ce1a5fb25cf5",
 			"key": "userID",
 			"value": ""
 		}
