@@ -3991,11 +3991,8 @@
 											"script": {
 												"id": "8fda8af0-f712-4932-acae-5a63e5356e89",
 												"exec": [
-													"pm.variables.set('email', pm.variables.replaceIn('{{$randomEmail}}'))\r",
-													"pm.variables.set('firstname', pm.variables.replaceIn('{{$randomFirstName}}'))\r",
-													"pm.variables.set('lastname', pm.variables.replaceIn('{{$randomLastName}}'))\r",
-													"pm.variables.set('avatar', pm.variables.replaceIn('{{$randomAvatarImage}}'))\r",
-													"pm.variables.set('password', pm.variables.replaceIn('{{$randomPassword}}'))"
+													"//{{$randomEmail}}\r",
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -4019,7 +4016,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\": \"admin.gmail.com\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
+											"raw": "{\n    \"email\": \"admin.gmail.com\",\n    \"firstname\": \"{{$randomFirstName}}\",\n    \"lastname\": \"{{$randomLastName}}\",\n    \"avatar\": \"{{$randomAvatarImage}}\",\n    \"password\": \"{{$randomPassword}}\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -4589,7 +4586,7 @@
 	],
 	"variable": [
 		{
-			"id": "e1187454-325d-4259-9f15-5168b86f754d",
+			"id": "637f513c-3b50-49e4-a2cd-39b66d7fa417",
 			"key": "userID",
 			"value": ""
 		}
