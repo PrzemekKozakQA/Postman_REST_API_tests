@@ -4102,22 +4102,13 @@
 										"token": "{{token}}"
 									}
 								},
-								"method": "PATCH",
+								"method": "DELETE",
 								"header": [
 									{
 										"key": "Accept",
 										"value": "application/json"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"****\",\r\n    \"firstname\": \"Moses\",\r\n    \"lastname\": \"****\",\r\n    \"password\": \"****\",\r\n    \"avatar\": \".\\\\data\\\\users\\\\face_1591133479.7144732.jpg\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": "{{baseUrl}}/users"
 							},
 							"response": [
