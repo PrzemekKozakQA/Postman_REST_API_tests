@@ -3935,7 +3935,7 @@
 					"name": "Create user - negative",
 					"item": [
 						{
-							"name": "Create user",
+							"name": "Create user without",
 							"event": [
 								{
 									"listen": "test",
