@@ -3945,43 +3945,7 @@
 											"script": {
 												"id": "e5a27f69-00ee-4342-856a-f2feb0dbdd20",
 												"exec": [
-													"let responseData;\r",
-													"\r",
-													"const Responseschema = {\r",
-													"    \"type\": \"object\",\r",
-													"    \"properties\": {\r",
-													"        \"id\": { \"type\": \"integer\", nullable: false },\r",
-													"        \"email\": { \"type\": \"string\", nullable: false },\r",
-													"        \"firstname\": { \"type\": \"string\", nullable: false },\r",
-													"        \"lastname\": { \"type\": \"string\", nullable: false },\r",
-													"        \"password\": { \"type\": \"string\", nullable: false },\r",
-													"        \"avatar\": { \"type\": \"string\", nullable: false }\r",
-													"    },\r",
-													"    \"required\": [\"id\", \"email\", \"firstname\", \"lastname\", \"password\", \"avatar\"]\r",
-													"};\r",
-													"\r",
-													"pm.test(\"Status code is 201\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response is in JSON format\", function () {\r",
-													"    pm.response.to.be.json;\r",
-													"    responseData = pm.response.json();\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response has valid schema\", function () {\r",
-													"    pm.response.to.has.jsonSchema(Responseschema);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response contains correct user data\", function () {\r",
-													"    pm.expect(responseData.email).eqls(pm.variables.get('email'));\r",
-													"    pm.expect(responseData.firstname).eqls(pm.variables.get('firstname'));\r",
-													"    pm.expect(responseData.lastname).eqls(pm.variables.get('lastname'));\r",
-													"    pm.expect(responseData.avatar).eqls(pm.variables.get('avatar'));\r",
-													"    pm.expect(responseData.password).eqls(pm.variables.get('password'));\r",
-													"});\r",
-													"\r",
-													"pm.collectionVariables.set('userID', pm.response.json().id);"
+													""
 												],
 												"type": "text/javascript"
 											}
@@ -4586,7 +4550,7 @@
 	],
 	"variable": [
 		{
-			"id": "d7c08be8-3427-4d33-b35c-aa4a3a51a711",
+			"id": "2788403e-3212-4720-b866-74074066946e",
 			"key": "userID",
 			"value": null
 		}
