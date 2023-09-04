@@ -4016,7 +4016,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{email}}\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
+									"raw": "{\n    \"email\": \"admin.gmail.com\",\n    \"firstname\": \"{{firstname}}\",\n    \"lastname\": \"{{lastname}}\",\n    \"avatar\": \"{{avatar}}\",\n    \"password\": \"{{password}}\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -4563,7 +4563,7 @@
 	],
 	"variable": [
 		{
-			"id": "045b7c2a-c411-4911-8364-49c3401a1dac",
+			"id": "bce0d948-da2d-423a-91c6-cd1fd10aeb45",
 			"key": "userID",
 			"value": ""
 		}
