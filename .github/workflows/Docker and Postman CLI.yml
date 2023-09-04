@@ -1,0 +1,17 @@
+name: Automated API tests using Postman CLI and applicatoion on docker
+
+on: workflow_dispatch
+
+jobs:
+  automated-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: run Docker imageo of GAD application
+        run: docker run -p 3000:3000 -d jaktestowac/gad
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Run API tests
+        run: |
+          postman collection run "Postman Collections/GAD-Postman_test_collection.json" -e "Postman Collections/Test (Docker image).postman_environment.json"
