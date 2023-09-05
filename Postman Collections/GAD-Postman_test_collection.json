@@ -489,7 +489,7 @@
 							]
 						},
 						{
-							"name": "empty e-mail",
+							"name": "empty login",
 							"event": [
 								{
 									"listen": "test",
