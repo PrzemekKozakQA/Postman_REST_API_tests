@@ -199,7 +199,7 @@
 					"name": "Login - negative",
 					"item": [
 						{
-							"name": "incorrect user e-mail",
+							"name": "incorrect userlogin",
 							"event": [
 								{
 									"listen": "test",
