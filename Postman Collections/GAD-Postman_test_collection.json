@@ -1764,7 +1764,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "\n<login>{{userEmail}}</login>\n<password>{{userPassword}}</password>",
+									"raw": "\n<email>{{userEmail}}</email>\n<password>{{userPassword}}</password>",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
