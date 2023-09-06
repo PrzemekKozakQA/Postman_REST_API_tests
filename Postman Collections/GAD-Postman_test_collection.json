@@ -1935,7 +1935,7 @@
 					]
 				},
 				{
-					"name": "login with broken body request - negative",
+					"name": "login with broken body - negative",
 					"item": [
 						{
 							"name": "broken json",
