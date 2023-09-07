@@ -1929,11 +1929,11 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json"
+										"value": ""
 									},
 									{
 										"key": "Accept",
-										"value": "application/json"
+										"value": ""
 									}
 								],
 								"body": {
