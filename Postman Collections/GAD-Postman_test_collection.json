@@ -1878,7 +1878,7 @@
 							]
 						},
 						{
-							"name": "Send request with empty Accept header",
+							"name": "Send request with Content-Type header",
 							"event": [
 								{
 									"listen": "test",
