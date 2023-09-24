@@ -5858,7 +5858,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
