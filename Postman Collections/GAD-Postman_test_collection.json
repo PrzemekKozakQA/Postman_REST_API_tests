@@ -1069,6 +1069,279 @@
 							]
 						},
 						{
+							"name": "wrong data type in login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "7003bc33-c31f-419f-b6e6-d0e4ad6ba7d4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}"
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "2c827fec-08cd-488d-817c-262b24ebb157",
+									"name": "wrong data type in login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 03 Sep 2023 15:13:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "800eeff40ab83482-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
+						},
+						{
+							"name": "wrong data type in password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "e87267ae-e620-4de9-b80e-8371943264de",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"{{userEmail}}\",\r\n    \"password\": true\r\n}"
+								},
+								"url": "{{baseUrl}}/login"
+							},
+							"response": [
+								{
+									"id": "5ba6ec18-394d-4151-953e-36fd2e98eb7f",
+									"name": "wrong data type in password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"login\": \"{{userEmail}}\",\r\n    \"password\": true\r\n}"
+										},
+										"url": "{{baseUrl}}/login"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 03 Sep 2023 15:19:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "800ef8254f633482-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "x-powered-by",
+											"value": "Express"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
+								}
+							]
+						},
+						{
 							"name": "no body in request",
 							"event": [
 								{
@@ -1407,279 +1680,6 @@
 										{
 											"key": "CF-Ray",
 											"value": "800eeccb98a13482-WAW"
-										},
-										{
-											"key": "CF-Cache-Status",
-											"value": "DYNAMIC"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
-										},
-										{
-											"key": "Expires",
-											"value": "-1"
-										},
-										{
-											"key": "Vary",
-											"value": "Accept-Encoding"
-										},
-										{
-											"key": "access-control-allow-credentials",
-											"value": "true"
-										},
-										{
-											"key": "pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "x-powered-by",
-											"value": "Express"
-										},
-										{
-											"key": "x-render-origin-server",
-											"value": "Render"
-										},
-										{
-											"key": "Server",
-											"value": "cloudflare"
-										},
-										{
-											"key": "alt-svc",
-											"value": "h3=\":443\"; ma=86400"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
-								}
-							]
-						},
-						{
-							"name": "wrong data type in login",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "7003bc33-c31f-419f-b6e6-d0e4ad6ba7d4",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}"
-								},
-								"url": "{{baseUrl}}/login"
-							},
-							"response": [
-								{
-									"id": "2c827fec-08cd-488d-817c-262b24ebb157",
-									"name": "wrong data type in login",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"login\": true,\r\n    \"password\": \"{{userPassword}}\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseUrl}}/login"
-									},
-									"status": "Unauthorized",
-									"code": 401,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sun, 03 Sep 2023 15:13:32 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "CF-Ray",
-											"value": "800eeff40ab83482-WAW"
-										},
-										{
-											"key": "CF-Cache-Status",
-											"value": "DYNAMIC"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-QSn1acw6fvJi/R6Y2AW0LDQrdC4\""
-										},
-										{
-											"key": "Expires",
-											"value": "-1"
-										},
-										{
-											"key": "Vary",
-											"value": "Accept-Encoding"
-										},
-										{
-											"key": "access-control-allow-credentials",
-											"value": "true"
-										},
-										{
-											"key": "pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "x-powered-by",
-											"value": "Express"
-										},
-										{
-											"key": "x-render-origin-server",
-											"value": "Render"
-										},
-										{
-											"key": "Server",
-											"value": "cloudflare"
-										},
-										{
-											"key": "alt-svc",
-											"value": "h3=\":443\"; ma=86400"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": 401,\n    \"message\": \"Incorrect email or password\"\n}"
-								}
-							]
-						},
-						{
-							"name": "wrong data type in password",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "40ae013a-518d-4fa9-ab7a-74e1de37e080",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "e87267ae-e620-4de9-b80e-8371943264de",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"login\": \"{{userEmail}}\",\r\n    \"password\": true\r\n}"
-								},
-								"url": "{{baseUrl}}/login"
-							},
-							"response": [
-								{
-									"id": "5ba6ec18-394d-4151-953e-36fd2e98eb7f",
-									"name": "wrong data type in password",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"login\": \"{{userEmail}}\",\r\n    \"password\": true\r\n}"
-										},
-										"url": "{{baseUrl}}/login"
-									},
-									"status": "Unauthorized",
-									"code": 401,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sun, 03 Sep 2023 15:19:08 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "CF-Ray",
-											"value": "800ef8254f633482-WAW"
 										},
 										{
 											"key": "CF-Cache-Status",
@@ -4870,6 +4870,1331 @@
 				}
 			],
 			"id": "4004895d-e9d2-4c19-a350-dbaf083e2efc"
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Find article by ID",
+							"id": "c889597c-9d11-45dc-b1cc-1a0ef614bc39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "ff52e9c7-e0af-454e-8bbd-08b12a288ef5",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								},
+								"description": "Returns a single article"
+							},
+							"response": [
+								{
+									"id": "cdfc321b-c893-48e4-957e-27b4ec04130c",
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
+								},
+								{
+									"id": "d00a312c-0027-4a00-8f69-ff159c3784dd",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Updates an article",
+							"id": "e9bca450-2c3d-4c84-98e1-27b30795fd47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{bearerToken}}"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a944d867-83cb-44ee-8d6f-1e41218d4cd0",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								},
+								"description": "Updates an article."
+							},
+							"response": [
+								{
+									"id": "6c958027-1061-4b10-afd0-175ddc02b0df",
+									"name": "Article updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
+								},
+								{
+									"id": "428b6742-28c3-4fbb-bad0-1a5add4cf569",
+									"name": "Article created",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
+								},
+								{
+									"id": "519488e6-9474-4a80-a14a-7929248221f7",
+									"name": "Bad request - malformed JSON",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "f6ea949f-f7fa-4664-90d1-a055eddb5922",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "38a62d04-b9b7-4ebb-be29-0bcf1108df1f",
+									"name": "Invalid article supplied",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Updates an article",
+							"id": "14b09bdb-754f-4128-85c5-626f015a4415",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{bearerToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "074ecf43-a43e-406b-9507-66fe19f0a08d",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								},
+								"description": "Updates an article."
+							},
+							"response": [
+								{
+									"id": "3763e8e4-11d5-488a-a6d0-b6cc9904f40b",
+									"name": "Article updated",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
+								},
+								{
+									"id": "b7bfb014-fac1-429c-be4d-10543443e370",
+									"name": "Bad request - malformed JSON",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "efebde44-2fbc-42ea-bf25-7845b8b4d4fc",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "62ffe2c0-60fc-4c1d-824d-f7385d5d2a74",
+									"name": "Invalid article supplied",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+									"code": 422,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Deletes an article",
+							"id": "b2c14dec-a8a1-4080-8e68-eafa1ec92d2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{bearerToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "8898e32c-f5b0-4bd2-8cac-7fd9181fe2cb",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a3b94435-8655-403e-9dfa-6421ba360ba3",
+									"name": "Article deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "2b8b6d70-c8ce-4ee9-a597-51b80b617f23",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Info about article",
+							"id": "d8ac3a6c-8c6e-483a-a94c-5b9b183b976b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "HEAD",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "8569d9c9-d528-425a-a31c-a02895f05d19",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "9463af83-1d42-4aaa-9043-568d61b48273",
+									"name": "Article exists",
+									"originalRequest": {
+										"method": "HEAD",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "076d97a8-295e-48f7-bff3-816e41c9f0d2",
+									"name": "Invalid ID supplied",
+									"originalRequest": {
+										"method": "HEAD",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "2ae8017b-800d-490c-bec2-03b3191a2ef5",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "HEAD",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "8df6d176-22b0-4704-820b-d1ecf9e92351"
+				},
+				{
+					"name": "Get all articles",
+					"id": "c9cc6275-d9d3-4187-831e-b319e4602e46",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{baseUrl}}/articles"
+					},
+					"response": [
+						{
+							"id": "d629eb02-cbcc-482e-8f8e-670d9aee11cb",
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/articles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"user_id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"date\": \"<date>\",\n    \"id\": \"<integer>\",\n    \"image\": \"<string>\"\n  },\n  {\n    \"user_id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"date\": \"<date>\",\n    \"id\": \"<integer>\",\n    \"image\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add article",
+					"id": "68077dc7-2ea2-430f-ae38-075e7b13ee15",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{bearerToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/articles"
+					},
+					"response": [
+						{
+							"id": "966d5514-972f-45e1-9514-73c424f35e85",
+							"name": "Article created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/articles"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
+						},
+						{
+							"id": "21def979-f570-40ba-8a8a-6aefc602de87",
+							"name": "Bad request - malformed JSON",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/articles"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "8c9905ba-e1bc-4bde-99db-2a6db0b811fd",
+							"name": "Invalid article supplied",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/articles"
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get articles with query Copy",
+					"id": "d1cd8e7c-e23c-4cee-83a0-e878e6fdc184",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/articles?&q=<string>&id=<integer>&user_id=<integer>&date=<string>&_sort=<string>&_order=<string>&_limit=<integer>&_page=<integer>&_start=<integer>&_end=<integer>&_embed=<string>&_expand=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								},
+								{
+									"description": "Free search articles.",
+									"key": "q",
+									"value": "<string>"
+								},
+								{
+									"description": "Id of article.",
+									"key": "id",
+									"value": "<integer>"
+								},
+								{
+									"description": "Id of user, creator of article.",
+									"key": "user_id",
+									"value": "<integer>"
+								},
+								{
+									"description": "Date of article creation.",
+									"key": "date",
+									"value": "<string>"
+								},
+								{
+									"description": "Sort with given attribute (user_id, title, id), use it with _order.",
+									"key": "_sort",
+									"value": "<string>"
+								},
+								{
+									"description": "Order default ascending (asc) for descending use desc.",
+									"key": "_order",
+									"value": "<string>"
+								},
+								{
+									"description": "Limit returned items. By default empty limit is 10.",
+									"key": "_limit",
+									"value": "<integer>"
+								},
+								{
+									"description": "Page number when using _limit.",
+									"key": "_page",
+									"value": "<integer>"
+								},
+								{
+									"description": "How many items should be skipped.",
+									"key": "_start",
+									"value": "<integer>"
+								},
+								{
+									"description": "How many to show after _start.",
+									"key": "_end",
+									"value": "<integer>"
+								},
+								{
+									"description": "Embed depending objects (comments).",
+									"key": "_embed",
+									"value": "<string>"
+								},
+								{
+									"description": "Expand depending objects (user).",
+									"key": "_expand",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "943763cb-32c8-40e8-b735-4f84e8a7a702",
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/articles?q=<string>&id=<integer>&user_id=<integer>&date=<string>&_sort=<string>&_order=<string>&_limit=<integer>&_page=<integer>&_start=<integer>&_end=<integer>&_embed=<string>&_expand=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles"
+									],
+									"query": [
+										{
+											"description": "Free search articles.",
+											"key": "q",
+											"value": "<string>"
+										},
+										{
+											"description": "Id of article.",
+											"key": "id",
+											"value": "<integer>"
+										},
+										{
+											"description": "Id of user, creator of article.",
+											"key": "user_id",
+											"value": "<integer>"
+										},
+										{
+											"description": "Date of article creation.",
+											"key": "date",
+											"value": "<string>"
+										},
+										{
+											"description": "Sort with given attribute (user_id, title, id), use it with _order.",
+											"key": "_sort",
+											"value": "<string>"
+										},
+										{
+											"description": "Order default ascending (asc) for descending use desc.",
+											"key": "_order",
+											"value": "<string>"
+										},
+										{
+											"description": "Limit returned items. By default empty limit is 10.",
+											"key": "_limit",
+											"value": "<integer>"
+										},
+										{
+											"description": "Page number when using _limit.",
+											"key": "_page",
+											"value": "<integer>"
+										},
+										{
+											"description": "How many items should be skipped.",
+											"key": "_start",
+											"value": "<integer>"
+										},
+										{
+											"description": "How many to show after _start.",
+											"key": "_end",
+											"value": "<integer>"
+										},
+										{
+											"description": "Embed depending objects (comments).",
+											"key": "_embed",
+											"value": "<string>"
+										},
+										{
+											"description": "Expand depending objects (user).",
+											"key": "_expand",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"user_id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"date\": \"<date>\",\n    \"id\": \"<integer>\",\n    \"image\": \"<string>\"\n  },\n  {\n    \"user_id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"date\": \"<date>\",\n    \"id\": \"<integer>\",\n    \"image\": \"<string>\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "8d134fbf-e17c-403a-aaa0-623acecbb402"
 		}
 	],
 	"event": [
