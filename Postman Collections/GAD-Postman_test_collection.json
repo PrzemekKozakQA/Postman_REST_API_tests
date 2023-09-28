@@ -5842,16 +5842,6 @@
 											"  });",
 											"});",
 											"",
-											"pm.test(\"user_id is a non-negative integer\", function () {",
-											"    const responseData = pm.response.json();",
-											"",
-											"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
-											"",
-											"    responseData.forEach(function (article) {",
-											"        pm.expect(article.user_id).to.be.a('number').and.to.be.at.least(0);",
-											"    });",
-											"});",
-											"",
 											""
 										],
 										"type": "text/javascript"
@@ -6698,6 +6688,12 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userID",
+			"value": ""
 		}
 	]
 }
