@@ -6213,7 +6213,7 @@
 											"\r",
 											"var isTokenExpired = (!tokenGenerationMoment) || (moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute')));\r",
 											"\r",
-											"if ( !token || isTokenExpired) {\r",
+											"if (!token || isTokenExpired) {\r",
 											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
 											"\r",
 											"    const options =\r",
@@ -6233,10 +6233,10 @@
 											"    };\r",
 											"\r",
 											"    pm.sendRequest(options, function (err, res) {\r",
-											"        if (err ) {\r",
+											"        if (err) {\r",
 											"            console.log(err);\r",
 											"        }\r",
-											"        else if (res.code !== 200){\r",
+											"        else if (res.code !== 200) {\r",
 											"            console.error(\"Failed to generate token!!!\")\r",
 											"            console.log(res.json().message);\r",
 											"        }\r",
@@ -6248,6 +6248,42 @@
 											"    });\r",
 											"\r",
 											"};"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"pm.test(\"user_id should be a non-empty string\", function() {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"user_id should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Title is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Body is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.body).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -6289,8 +6325,8 @@
 							},
 							"response": [
 								{
-									"id": "966d5514-972f-45e1-9514-73c424f35e85",
-									"name": "Article created",
+									"id": "42e80339-d2e8-4668-90b9-3e91f5ab9870",
+									"name": "Add article",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -6301,16 +6337,11 @@
 											{
 												"key": "Accept",
 												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -6325,85 +6356,129 @@
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
+											"key": "Date",
+											"value": "Thu, 28 Sep 2023 21:23:14 GMT"
+										},
+										{
 											"key": "Content-Type",
-											"value": "application/json"
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Location",
+											"value": "http://gui-api-demo-bg91.onrender.com/api/articles/60"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "80df0be19a78bfc3-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a5-tHznjWR86cJbsz9r8LIANn91NdA\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "access-control-expose-headers",
+											"value": "Location"
+										},
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "cross-origin-embedder-policy",
+											"value": "require-corp"
+										},
+										{
+											"key": "cross-origin-opener-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "cross-origin-resource-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "origin-agent-cluster",
+											"value": "?1"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
-								},
-								{
-									"id": "21def979-f570-40ba-8a8a-6aefc602de87",
-									"name": "Bad request - malformed JSON",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseUrl}}/articles"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
-								},
-								{
-									"id": "8c9905ba-e1bc-4bde-99db-2a6db0b811fd",
-									"name": "Invalid article supplied",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"image\": \"<string>\"\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseUrl}}/articles"
-									},
-									"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
-									"code": 422,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
+									"body": "{\n    \"user_id\": \"1\",\n    \"title\": \"test title user 2\",\n    \"body\": \"Lorem ipsum set doloris2\",\n    \"date\": \"2024-06-30T15:44:31Z\",\n    \"image\": \"img/img/test/1\",\n    \"id\": 60\n}"
 								}
 							]
 						}
