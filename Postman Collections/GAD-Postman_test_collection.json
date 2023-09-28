@@ -6297,6 +6297,7 @@
 											"            console.log(err);\r",
 											"        }\r",
 											"        else if (res.code !== 200){\r",
+											"            console.error(\"Failed to generate token!!!\")\r",
 											"            console.log(res.json().message);\r",
 											"        }\r",
 											"        else {\r",
