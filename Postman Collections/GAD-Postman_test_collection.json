@@ -6258,6 +6258,57 @@
 					"item": [
 						{
 							"name": "Add article",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+										"exec": [
+											"const moment = require('moment');\r",
+											"const baseURL = pm.variables.get(\"baseUrl\");\r",
+											"var token = pm.variables.get(\"token\");\r",
+											"const login = pm.environment.get(\"login\");\r",
+											"const password = pm.environment.get(\"password\");\r",
+											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+											"\r",
+											"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
+											"\r",
+											"if (!token || isTokenExpired) {\r",
+											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"\r",
+											"    const options =\r",
+											"    {\r",
+											"        url: baseURL + \"/login\",\r",
+											"        method: 'POST',\r",
+											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+											"        body: {\r",
+											"            mode: 'raw',\r",
+											"            raw: JSON.stringify(\r",
+											"                {\r",
+											"                    \"email\": login,\r",
+											"                    \"password\": password\r",
+											"                }\r",
+											"            )\r",
+											"        }\r",
+											"    };\r",
+											"\r",
+											"    pm.sendRequest(options, function (err, res) {\r",
+											"        if (err) {\r",
+											"            console.log(err);\r",
+											"        }\r",
+											"        else {\r",
+											"            var jsonData = res.json();\r",
+											"            pm.environment.set(\"token\", jsonData.access_token);\r",
+											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"};"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "68077dc7-2ea2-430f-ae38-075e7b13ee15",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
