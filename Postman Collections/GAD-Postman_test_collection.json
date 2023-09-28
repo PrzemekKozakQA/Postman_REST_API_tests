@@ -3750,8 +3750,8 @@
 									"script": {
 										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -3797,8 +3797,8 @@
 									"script": {
 										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -3844,8 +3844,8 @@
 									"script": {
 										"id": "ee837636-a492-42fd-b5f9-8b37c31b8c93",
 										"exec": [
-											"pm.test(\"Status code is 404\", function () {\r",
-											"    pm.response.to.have.status(404);\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});"
 										],
 										"type": "text/javascript"
@@ -3982,17 +3982,8 @@
 									"script": {
 										"id": "e621036f-e3bf-4123-8cf9-d342471e7174",
 										"exec": [
-											"const moment = require('moment');\r",
-											"const baseURL = pm.variables.get(\"baseUrl\");\r",
-											"var token = pm.variables.get(\"token\");\r",
-											"const login = 'admin' //pm.variables.get(\"login\");\r",
-											"const password = 'admin' //pm.variables.get(\"password\");\r",
-											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
-											"\r",
-											"var isTokenExpired = moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute'));\r",
-											"\r",
-											"if (!token || isTokenExpired) {\r",
-											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"const login = 'admin' \r",
+											"const password = 'admin' \r",
 											"\r",
 											"    const options =\r",
 											"    {\r",
@@ -4016,12 +4007,9 @@
 											"        }\r",
 											"        else {\r",
 											"            var jsonData = res.json();\r",
-											"            pm.environment.set(\"token\", jsonData.access_token);\r",
-											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"            pm.variables.set(\"adminToken\", jsonData.access_token);\r",
 											"        }\r",
-											"    });\r",
-											"\r",
-											"};"
+											"    });"
 										],
 										"type": "text/javascript"
 									}
@@ -4049,7 +4037,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{token}}"
+										"token": "{{adminToken}}"
 									}
 								},
 								"method": "DELETE",
