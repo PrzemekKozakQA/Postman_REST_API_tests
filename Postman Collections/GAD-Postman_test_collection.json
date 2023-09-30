@@ -6215,7 +6215,7 @@
 											"    pm.response.to.have.status(201);",
 											"});",
 											"",
-											"const responseData;",
+											"let  responseData;",
 											"pm.test(\"user_id should be a non-empty string\", function() {",
 											"    responseData = pm.response.json();",
 											"    ",
@@ -6821,7 +6821,7 @@
 	],
 	"variable": [
 		{
-			"id": "ac2fc2fb-afde-4b7f-9817-acd5f892e4aa",
+			"id": "728557c0-9325-4175-a57b-f68b5379557c",
 			"key": "articleId",
 			"value": ""
 		}
