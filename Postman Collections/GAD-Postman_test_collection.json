@@ -6494,6 +6494,18 @@
 										],
 										"type": "text/javascript"
 									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "b4d6acfe-22bf-4697-99c4-0bb4f828fd5c",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
 								}
 							],
 							"id": "c8d0ac9b-84c9-4c89-a29d-e162de7b7b33",
@@ -6821,7 +6833,7 @@
 	],
 	"variable": [
 		{
-			"id": "728557c0-9325-4175-a57b-f68b5379557c",
+			"id": "fc3462eb-1b19-4d69-818d-6b5b16e3d191",
 			"key": "articleId",
 			"value": ""
 		}
