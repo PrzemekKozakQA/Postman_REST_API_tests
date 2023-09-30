@@ -6438,6 +6438,64 @@
 						},
 						{
 							"name": "Deletes an article",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "54fb432d-e28c-4c4c-afcb-3631ab75754c",
+										"exec": [
+											"//importing a library for date and time management\r",
+											"const moment = require('moment');\r",
+											"\r",
+											"//get data from environment\r",
+											"const baseURL = pm.variables.get(\"baseUrl\");\r",
+											"var token = pm.variables.get(\"token\");\r",
+											"const login = pm.environment.get(\"userEmail\");\r",
+											"const password = pm.environment.get(\"userPassword\");\r",
+											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+											"\r",
+											"var isTokenExpired = (!tokenGenerationMoment) || (moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute')));\r",
+											"\r",
+											"if (!token || isTokenExpired) {\r",
+											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"\r",
+											"    const options =\r",
+											"    {\r",
+											"        url: baseURL + \"/login\",\r",
+											"        method: 'POST',\r",
+											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+											"        body: {\r",
+											"            mode: 'raw',\r",
+											"            raw: JSON.stringify(\r",
+											"                {\r",
+											"                    \"email\": login,\r",
+											"                    \"password\": password\r",
+											"                }\r",
+											"            )\r",
+											"        }\r",
+											"    };\r",
+											"\r",
+											"    pm.sendRequest(options, function (err, res) {\r",
+											"        if (err) {\r",
+											"            console.error(err);\r",
+											"        }\r",
+											"        else if (res.code !== 200) {\r",
+											"            console.error(\"Failed to generate token!!!\")\r",
+											"            console.log(res.json().message);\r",
+											"        }\r",
+											"        else {\r",
+											"            var jsonData = res.json();\r",
+											"            pm.environment.set(\"token\", jsonData.access_token);\r",
+											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"};"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "c8d0ac9b-84c9-4c89-a29d-e162de7b7b33",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6446,7 +6504,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{bearerToken}}"
+										"token": "{{token}}"
 									}
 								},
 								"method": "DELETE",
@@ -6462,9 +6520,8 @@
 									],
 									"variable": [
 										{
-											"id": "8898e32c-f5b0-4bd2-8cac-7fd9181fe2cb",
 											"key": "id",
-											"value": "<integer>"
+											"value": "{{articleId}}"
 										}
 									]
 								}
@@ -6764,7 +6821,7 @@
 	],
 	"variable": [
 		{
-			"id": "ba024876-0c3c-4e53-aa8d-8f0d70a14300",
+			"id": "ac2fc2fb-afde-4b7f-9817-acd5f892e4aa",
 			"key": "articleId",
 			"value": ""
 		}
