@@ -6154,9 +6154,10 @@
 									"script": {
 										"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
 										"exec": [
+											"//importing a library for date and time management\r",
 											"const moment = require('moment');\r",
 											"\r",
-											"//get data from  environment\r",
+											"//get data from environment\r",
 											"const baseURL = pm.variables.get(\"baseUrl\");\r",
 											"var token = pm.variables.get(\"token\");\r",
 											"const login = pm.environment.get(\"userEmail\");\r",
@@ -6186,7 +6187,7 @@
 											"\r",
 											"    pm.sendRequest(options, function (err, res) {\r",
 											"        if (err) {\r",
-											"            console.log(err);\r",
+											"            console.error(err);\r",
 											"        }\r",
 											"        else if (res.code !== 200) {\r",
 											"            console.error(\"Failed to generate token!!!\")\r",
