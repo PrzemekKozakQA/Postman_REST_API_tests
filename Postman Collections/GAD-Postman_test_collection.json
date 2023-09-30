@@ -6434,6 +6434,114 @@
 									"body": "{\n    \"user_id\": \"1\",\n    \"title\": \"test title user 2\",\n    \"body\": \"Lorem ipsum set doloris2\",\n    \"date\": \"2024-06-30T15:44:31Z\",\n    \"image\": \"img/img/test/1\",\n    \"id\": 60\n}"
 								}
 							]
+						},
+						{
+							"name": "Deletes an article",
+							"id": "c8d0ac9b-84c9-4c89-a29d-e162de7b7b33",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{bearerToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/articles/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"articles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "8898e32c-f5b0-4bd2-8cac-7fd9181fe2cb",
+											"key": "id",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1a2af5d9-fbaf-4e32-a219-4e630322bbeb",
+									"name": "Article deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "fe4d7b71-2613-45d7-8c45-7067d006ae72",
+									"name": "Article not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
 						}
 					],
 					"id": "1e50eb85-6658-423b-b3cf-06736a0fdbb4"
