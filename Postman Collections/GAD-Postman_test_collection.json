@@ -6761,5 +6761,12 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"id": "ba024876-0c3c-4e53-aa8d-8f0d70a14300",
+			"key": "articleId",
+			"value": ""
+		}
 	]
 }
