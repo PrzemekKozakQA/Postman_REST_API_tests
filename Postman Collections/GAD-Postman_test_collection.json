@@ -6544,53 +6544,7 @@
 									"script": {
 										"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
 										"exec": [
-											"//importing a library for date and time management\r",
-											"const moment = require('moment');\r",
-											"\r",
-											"//get data from environment\r",
-											"const baseURL = pm.variables.get(\"baseUrl\");\r",
-											"var token = pm.variables.get(\"token\");\r",
-											"const login = pm.environment.get(\"userEmail\");\r",
-											"const password = pm.environment.get(\"userPassword\");\r",
-											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
-											"\r",
-											"var isTokenExpired = (!tokenGenerationMoment) || (moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute')));\r",
-											"\r",
-											"if (!token || isTokenExpired) {\r",
-											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
-											"\r",
-											"    const options =\r",
-											"    {\r",
-											"        url: baseURL + \"/login\",\r",
-											"        method: 'POST',\r",
-											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
-											"        body: {\r",
-											"            mode: 'raw',\r",
-											"            raw: JSON.stringify(\r",
-											"                {\r",
-											"                    \"email\": login,\r",
-											"                    \"password\": password\r",
-											"                }\r",
-											"            )\r",
-											"        }\r",
-											"    };\r",
-											"\r",
-											"    pm.sendRequest(options, function (err, res) {\r",
-											"        if (err) {\r",
-											"            console.error(err);\r",
-											"        }\r",
-											"        else if (res.code !== 200) {\r",
-											"            console.error(\"Failed to generate token!!!\")\r",
-											"            console.log(res.json().message);\r",
-											"        }\r",
-											"        else {\r",
-											"            var jsonData = res.json();\r",
-											"            pm.environment.set(\"token\", jsonData.access_token);\r",
-											"            pm.environment.set(\"token_generation_moment\", moment());\r",
-											"        }\r",
-											"    });\r",
-											"\r",
-											"};"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -6600,33 +6554,6 @@
 									"script": {
 										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
 										"exec": [
-											"",
-											"pm.test(\"Response status code is 201\", function () {",
-											"    pm.response.to.have.status(201);",
-											"});",
-											"",
-											"let  responseData;",
-											"pm.test(\"user_id should be a non-empty string\", function() {",
-											"    responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"user_id should not be empty\");",
-											"});",
-											"",
-											"",
-											"pm.test(\"Title is a non-empty string\", function () {",
-											"    const responseData = pm.response.json();",
-											"",
-											"    pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
-											"});",
-											"",
-											"",
-											"pm.test(\"Body is a non-empty string\", function () {",
-											"    const responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData.body).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
-											"});",
-											"",
-											"pm.collectionVariables.set('articleId', responseData.id)",
 											""
 										],
 										"type": "text/javascript"
@@ -6641,7 +6568,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{token}}"
+										"token": ""
 									}
 								},
 								"method": "POST",
@@ -6889,7 +6816,7 @@
 	],
 	"variable": [
 		{
-			"id": "55d9cb1e-ff65-4e0f-a206-b95683ad41e5",
+			"id": "f5de01e7-250e-4396-b785-6e0d2d2fdd3f",
 			"key": "articleId",
 			"value": ""
 		}
