@@ -6558,8 +6558,9 @@
 											"    pm.response.to.have.status(401);",
 											"});",
 											"",
-											"pm.test(\"Nessage is correct\", function () {",
-											"    pm.response.json().error.message.eql.to(\"Access token not provided!\");",
+											"pm.test(\"Message is correct\", function () {",
+											"    let message = pm.response.json().error.message;",
+											"    pm.expect(message).eql(\"Access token not provided!\");",
 											"});"
 										],
 										"type": "text/javascript"
@@ -6822,7 +6823,7 @@
 	],
 	"variable": [
 		{
-			"id": "6beb42a8-5343-44d0-99eb-eb9dbdbc5583",
+			"id": "ac02c282-d57e-4e6a-943f-e6fe5d9d7e7e",
 			"key": "articleId",
 			"value": ""
 		}
