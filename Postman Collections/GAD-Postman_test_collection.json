@@ -6537,7 +6537,7 @@
 					"name": "Add article - negative",
 					"item": [
 						{
-							"name": "Add article",
+							"name": "No Authorization token",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -6889,7 +6889,7 @@
 	],
 	"variable": [
 		{
-			"id": "6f8f7e17-9e8e-4225-a336-60c7a3d39f9d",
+			"id": "55d9cb1e-ff65-4e0f-a206-b95683ad41e5",
 			"key": "articleId",
 			"value": ""
 		}
