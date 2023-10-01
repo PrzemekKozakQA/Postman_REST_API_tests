@@ -6817,33 +6817,14 @@
 										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
 										"exec": [
 											"",
-											"pm.test(\"Response status code is 201\", function () {",
-											"    pm.response.to.have.status(201);",
+											"pm.test(\"Response status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
 											"});",
 											"",
-											"let  responseData;",
-											"pm.test(\"user_id should be a non-empty string\", function() {",
-											"    responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData.user_id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"user_id should not be empty\");",
-											"});",
-											"",
-											"",
-											"pm.test(\"Title is a non-empty string\", function () {",
-											"    const responseData = pm.response.json();",
-											"",
-											"    pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
-											"});",
-											"",
-											"",
-											"pm.test(\"Body is a non-empty string\", function () {",
-											"    const responseData = pm.response.json();",
-											"    ",
-											"    pm.expect(responseData.body).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
-											"});",
-											"",
-											"pm.collectionVariables.set('articleId', responseData.id)",
-											""
+											"pm.test(\"Message is correct\", function () {",
+											"    let message = pm.response.json().error.message;",
+											"    pm.expect(message).eql(\"Access token for given user is invalid!\");",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -6873,7 +6854,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+									"raw": "{\n  \"user_id\": \"3\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -7105,7 +7086,7 @@
 	],
 	"variable": [
 		{
-			"id": "ed6d4411-7aff-4a22-ad6a-b534a98e99fe",
+			"id": "6c7659e7-2ed8-4290-a656-353bcb01c494",
 			"key": "articleId",
 			"value": ""
 		}
