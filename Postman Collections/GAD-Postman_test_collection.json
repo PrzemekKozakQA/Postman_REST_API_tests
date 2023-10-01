@@ -5979,7 +5979,9 @@
 									"script": {
 										"id": "cc7e7c67-ced8-414e-8ac6-c641a25ac9d3",
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -6840,7 +6842,7 @@
 	],
 	"variable": [
 		{
-			"id": "5ee778e8-d606-48c3-b3be-afb761899713",
+			"id": "946b0a87-8326-44c3-843e-35389347742a",
 			"key": "articleId",
 			"value": ""
 		}
