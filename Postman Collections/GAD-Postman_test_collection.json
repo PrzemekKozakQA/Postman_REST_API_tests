@@ -5991,9 +5991,9 @@
 								"disabledSystemHeaders": {
 									"connection": true,
 									"accept-encoding": true,
-									"accept": true,
 									"user-agent": true,
-									"host": true
+									"host": true,
+									"accept": true
 								}
 							},
 							"request": {
@@ -6001,8 +6001,7 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json",
-										"disabled": true
+										"value": "xml/xml"
 									}
 								],
 								"url": "{{baseUrl}}/articles"
@@ -6841,7 +6840,7 @@
 	],
 	"variable": [
 		{
-			"id": "b59470b6-5b9e-47de-9de7-80430dab47ab",
+			"id": "d53c85a9-c76a-4e24-a994-ac21263d2f37",
 			"key": "articleId",
 			"value": ""
 		}
