@@ -5987,14 +5987,22 @@
 							],
 							"id": "08b78f38-50f5-4016-9b4b-3a6fc307f91e",
 							"protocolProfileBehavior": {
-								"disableBodyPruning": true
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"connection": true,
+									"accept-encoding": true,
+									"accept": true,
+									"user-agent": true,
+									"host": true
+								}
 							},
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json"
+										"value": "application/json",
+										"disabled": true
 									}
 								],
 								"url": "{{baseUrl}}/articles"
@@ -6833,7 +6841,7 @@
 	],
 	"variable": [
 		{
-			"id": "83ef1268-1401-45b6-ae4b-4ddc0f397ff4",
+			"id": "b59470b6-5b9e-47de-9de7-80430dab47ab",
 			"key": "articleId",
 			"value": ""
 		}
