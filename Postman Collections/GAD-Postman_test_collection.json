@@ -6554,7 +6554,13 @@
 									"script": {
 										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
 										"exec": [
-											""
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Nessage is correct\", function () {",
+											"    pm.response.json().error.message.eql.to(\"Access token not provided!\");",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -6816,7 +6822,7 @@
 	],
 	"variable": [
 		{
-			"id": "f5de01e7-250e-4396-b785-6e0d2d2fdd3f",
+			"id": "6beb42a8-5343-44d0-99eb-eb9dbdbc5583",
 			"key": "articleId",
 			"value": ""
 		}
