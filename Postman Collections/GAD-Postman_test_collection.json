@@ -6439,7 +6439,75 @@
 							]
 						}
 					],
-					"id": "1e50eb85-6658-423b-b3cf-06736a0fdbb4"
+					"id": "1e50eb85-6658-423b-b3cf-06736a0fdbb4",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "535ec1ba-8cf6-4a40-9d81-d780921a32db",
+								"type": "text/javascript",
+								"exec": [
+									"//importing a library for date and time management",
+									"const moment = require('moment');",
+									"",
+									"//get data from environment",
+									"const baseURL = pm.variables.get(\"baseUrl\");",
+									"var token = pm.variables.get(\"token\");",
+									"const login = pm.environment.get(\"userEmail\");",
+									"const password = pm.environment.get(\"userPassword\");",
+									"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");",
+									"",
+									"var isTokenExpired = (!tokenGenerationMoment) || (moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute')));",
+									"",
+									"if (!token || isTokenExpired) {",
+									"    console.info(\"Acces token is empty or expired. Getting new token...\")",
+									"",
+									"    const options =",
+									"    {",
+									"        url: baseURL + \"/login\",",
+									"        method: 'POST',",
+									"        header: { 'content-type': 'application/json', 'accept': 'application/json' },",
+									"        body: {",
+									"            mode: 'raw',",
+									"            raw: JSON.stringify(",
+									"                {",
+									"                    \"email\": login,",
+									"                    \"password\": password",
+									"                }",
+									"            )",
+									"        }",
+									"    };",
+									"",
+									"    pm.sendRequest(options, function (err, res) {",
+									"        if (err) {",
+									"            console.error(err);",
+									"        }",
+									"        else if (res.code !== 200) {",
+									"            console.error(\"Failed to generate token!!!\")",
+									"            console.log(res.json().message);",
+									"        }",
+									"        else {",
+									"            var jsonData = res.json();",
+									"            pm.environment.set(\"token\", jsonData.access_token);",
+									"            pm.environment.set(\"token_generation_moment\", moment());",
+									"        }",
+									"    });",
+									"",
+									"};"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "72fd9a66-7cc3-472d-8cb6-138d342e1f08",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Add article - negative",
@@ -7669,7 +7737,7 @@
 	],
 	"variable": [
 		{
-			"id": "59153222-0237-4b1f-bb82-ead3b7e6080d",
+			"id": "51b8a195-c867-4e08-8dc7-7e53e46b44c3",
 			"key": "articleId",
 			"value": ""
 		}
