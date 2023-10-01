@@ -7080,13 +7080,13 @@
 										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
 										"exec": [
 											"",
-											"pm.test(\"Response status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
+											"pm.test(\"Response status code is 422\", function () {",
+											"    pm.response.to.have.status(422);",
 											"});",
 											"",
 											"pm.test(\"Message is correct\", function () {",
 											"    let message = pm.response.json().error.message;",
-											"    pm.expect(message).eql(\"Access token for given user is invalid!\");",
+											"    pm.expect(message).eql(\"One of mandatory field is missing\");",
 											"});"
 										],
 										"type": "text/javascript"
@@ -7498,7 +7498,7 @@
 	],
 	"variable": [
 		{
-			"id": "0b2455e2-c40b-45f5-b70c-9493f70ddbcb",
+			"id": "de8ad4bf-0370-4502-9ab4-ac5f57646f79",
 			"key": "articleId",
 			"value": ""
 		}
