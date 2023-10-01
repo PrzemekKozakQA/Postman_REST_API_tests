@@ -6008,7 +6008,54 @@
 								],
 								"url": "{{baseUrl}}/articles"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "30f306d5-61a2-434e-b37d-3f22b8057419",
+									"name": "Get with xml in Accept header",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "xml/xml"
+											}
+										],
+										"url": "{{baseUrl}}/articles"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 01 Oct 2023 14:02:10 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html"
+										},
+										{
+											"key": "Content-Length",
+											"value": "155"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "-"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "<html>\n    <head>\n        <title>400 Bad Request</title>\n    </head>\n    <body>\n        <center>\n            <h1>400 Bad Request</h1>\n        </center>\n        <hr>\n        <center>cloudflare</center>\n    </body>\n</html>"
+								}
+							]
 						}
 					],
 					"id": "ccf7b9fd-f132-46c0-96b8-d272e9565ce1"
@@ -6703,7 +6750,7 @@
 	],
 	"variable": [
 		{
-			"id": "ae2841ae-9b8d-471e-829f-7d1df17af637",
+			"id": "c3d1929d-435a-4d57-9d35-d5f2bce2e9f1",
 			"key": "articleId",
 			"value": ""
 		}
