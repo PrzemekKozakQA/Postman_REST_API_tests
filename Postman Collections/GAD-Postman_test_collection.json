@@ -7014,6 +7014,269 @@
 									"body": "{\n    \"error\": {\n        \"message\": \"Access token for given user is invalid!\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Add an article without title property",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+										"exec": [
+											"//importing a library for date and time management\r",
+											"const moment = require('moment');\r",
+											"\r",
+											"//get data from environment\r",
+											"const baseURL = pm.variables.get(\"baseUrl\");\r",
+											"var token = pm.variables.get(\"token\");\r",
+											"const login = pm.environment.get(\"userEmail\");\r",
+											"const password = pm.environment.get(\"userPassword\");\r",
+											"var tokenGenerationMoment = pm.environment.get(\"token_generation_moment\");\r",
+											"\r",
+											"var isTokenExpired = (!tokenGenerationMoment) || (moment(tokenGenerationMoment).isBefore(moment().subtract(59, 'minute')));\r",
+											"\r",
+											"if (!token || isTokenExpired) {\r",
+											"    console.info(\"Acces token is empty or expired. Getting new token...\")\r",
+											"\r",
+											"    const options =\r",
+											"    {\r",
+											"        url: baseURL + \"/login\",\r",
+											"        method: 'POST',\r",
+											"        header: { 'content-type': 'application/json', 'accept': 'application/json' },\r",
+											"        body: {\r",
+											"            mode: 'raw',\r",
+											"            raw: JSON.stringify(\r",
+											"                {\r",
+											"                    \"email\": login,\r",
+											"                    \"password\": password\r",
+											"                }\r",
+											"            )\r",
+											"        }\r",
+											"    };\r",
+											"\r",
+											"    pm.sendRequest(options, function (err, res) {\r",
+											"        if (err) {\r",
+											"            console.error(err);\r",
+											"        }\r",
+											"        else if (res.code !== 200) {\r",
+											"            console.error(\"Failed to generate token!!!\")\r",
+											"            console.log(res.json().message);\r",
+											"        }\r",
+											"        else {\r",
+											"            var jsonData = res.json();\r",
+											"            pm.environment.set(\"token\", jsonData.access_token);\r",
+											"            pm.environment.set(\"token_generation_moment\", moment());\r",
+											"        }\r",
+											"    });\r",
+											"\r",
+											"};"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Message is correct\", function () {",
+											"    let message = pm.response.json().error.message;",
+											"    pm.expect(message).eql(\"Access token for given user is invalid!\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "141c8902-ccb2-4580-8584-20faf49df8aa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"user_id\": \"3\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/articles"
+							},
+							"response": [
+								{
+									"id": "e0a1e02b-496a-419f-9118-ab84d6134d97",
+									"name": "Add article Copy",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"3\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 01 Oct 2023 14:10:10 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "CF-Ray",
+											"value": "80f5499e3cf3f294-WAW"
+										},
+										{
+											"key": "CF-Cache-Status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4d-FnSk3S45Ys2CGFJQx+2oRajAbG8\""
+										},
+										{
+											"key": "Expires",
+											"value": "-1"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=15552000; includeSubDomains"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "access-control-allow-credentials",
+											"value": "true"
+										},
+										{
+											"key": "content-security-policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "cross-origin-embedder-policy",
+											"value": "require-corp"
+										},
+										{
+											"key": "cross-origin-opener-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "cross-origin-resource-policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "origin-agent-cluster",
+											"value": "?1"
+										},
+										{
+											"key": "pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "referrer-policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "x-content-type-options",
+											"value": "nosniff"
+										},
+										{
+											"key": "x-dns-prefetch-control",
+											"value": "off"
+										},
+										{
+											"key": "x-download-options",
+											"value": "noopen"
+										},
+										{
+											"key": "x-frame-options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "x-permitted-cross-domain-policies",
+											"value": "none"
+										},
+										{
+											"key": "x-render-origin-server",
+											"value": "Render"
+										},
+										{
+											"key": "x-xss-protection",
+											"value": "0"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"error\": {\n        \"message\": \"Access token for given user is invalid!\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "26b24145-ae20-4e25-914c-5478d87642be"
@@ -7235,7 +7498,7 @@
 	],
 	"variable": [
 		{
-			"id": "308addad-5ca3-4b56-be84-aac3e3876283",
+			"id": "bf526673-c3dd-4ea4-b89c-74a125cb044c",
 			"key": "articleId",
 			"value": ""
 		}
