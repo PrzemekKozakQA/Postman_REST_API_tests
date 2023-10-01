@@ -5662,9 +5662,8 @@
 									],
 									"variable": [
 										{
-											"id": "8569d9c9-d528-425a-a31c-a02895f05d19",
 											"key": "id",
-											"value": "<integer>"
+											"value": "1"
 										}
 									]
 								}
@@ -7737,7 +7736,7 @@
 	],
 	"variable": [
 		{
-			"id": "d16fe973-dc43-45f6-a853-ddaaafbe967e",
+			"id": "0a694ed6-111d-498e-bdfe-eec3d92d7204",
 			"key": "articleId",
 			"value": ""
 		}
