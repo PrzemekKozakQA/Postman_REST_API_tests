@@ -5972,7 +5972,7 @@
 					"name": "Get all articles - negative",
 					"item": [
 						{
-							"name": "Get all articles",
+							"name": "Get with xml in Accept header",
 							"event": [
 								{
 									"listen": "test",
@@ -6840,7 +6840,7 @@
 	],
 	"variable": [
 		{
-			"id": "d53c85a9-c76a-4e24-a994-ac21263d2f37",
+			"id": "5ee778e8-d606-48c3-b3be-afb761899713",
 			"key": "articleId",
 			"value": ""
 		}
