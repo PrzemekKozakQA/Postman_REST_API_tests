@@ -6573,7 +6573,7 @@
 							"name": "Body without required data",
 							"item": [
 								{
-									"name": "No user_id",
+									"name": "No user_id property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "e29510aa-36c0-4dd1-bbe4-b65fb61933c5",
+			"id": "404af794-891d-4111-ae92-a89dcbdaffba",
 			"key": "articleId",
 			"value": ""
 		}
