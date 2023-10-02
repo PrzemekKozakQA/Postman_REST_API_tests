@@ -6877,7 +6877,308 @@
 						},
 						{
 							"name": "Body with empty property",
-							"item": [],
+							"item": [
+								{
+									"name": "empty  user_id property",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "f09e144f-14ad-464e-8c71-8dbc9e445ee6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								},
+								{
+									"name": "No title property Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "30a496e4-bb8c-4082-9d9c-0fde7d16236d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								},
+								{
+									"name": "No body property Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "1557163c-9c21-4de7-b037-e4f336f1ff12",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								},
+								{
+									"name": "No date property Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "91bef9e3-6bab-480d-ab32-a42d1dddd99c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								},
+								{
+									"name": "No image property Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "3b537aa2-d744-4a52-96ab-9741e8c512aa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								}
+							],
 							"id": "20dd26b5-2a64-4688-9f15-af0cf5216713"
 						},
 						{
@@ -7842,7 +8143,7 @@
 	],
 	"variable": [
 		{
-			"id": "b9d9d08d-f6a6-4c28-8189-c50f5366f3bf",
+			"id": "7b9e8c17-ba24-44d3-86bd-605513a59153",
 			"key": "articleId",
 			"value": ""
 		}
