@@ -6502,7 +6502,7 @@
 							"id": "0d717056-4ea6-418c-8f40-5410d303a0ba"
 						},
 						{
-							"name": "with only required properys",
+							"name": "with only required properies",
 							"item": [
 								{
 									"name": "Add article without image",
@@ -8551,7 +8551,7 @@
 	],
 	"variable": [
 		{
-			"id": "a27799c5-bd7e-47e1-99c9-bfd395753246",
+			"id": "c3dc40eb-d119-473b-a8bd-6b00244a034d",
 			"key": "articleId",
 			"value": ""
 		}
