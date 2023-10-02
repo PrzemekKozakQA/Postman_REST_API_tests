@@ -6573,6 +6573,11 @@
 							"name": "Body without required data",
 							"item": [
 								{
+									"name": "New Folder",
+									"item": [],
+									"id": "20dd26b5-2a64-4688-9f15-af0cf5216713"
+								},
+								{
 									"name": "No user_id property",
 									"event": [
 										{
@@ -7837,7 +7842,7 @@
 	],
 	"variable": [
 		{
-			"id": "32fbc738-46ea-476e-a4f2-e00cf7a7670c",
+			"id": "37f90fa2-4330-4c72-b1e0-c84c1b2d7cd7",
 			"key": "articleId",
 			"value": ""
 		}
