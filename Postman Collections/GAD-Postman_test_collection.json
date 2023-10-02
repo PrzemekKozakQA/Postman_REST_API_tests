@@ -4886,46 +4886,6 @@
 							},
 							"response": [
 								{
-									"id": "cdfc321b-c893-48e4-957e-27b4ec04130c",
-									"name": "successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/articles/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"articles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n  \"user_id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"date\": \"<date>\",\n  \"id\": \"<integer>\",\n  \"image\": \"<string>\"\n}"
-								},
-								{
 									"id": "d00a312c-0027-4a00-8f69-ff159c3784dd",
 									"name": "Article not found",
 									"originalRequest": {
@@ -8548,7 +8508,7 @@
 	],
 	"variable": [
 		{
-			"id": "8d64ca8b-ac33-45f0-a0ec-adb81ef13847",
+			"id": "1d12d11d-bd0f-4290-ad69-fabedc173a0d",
 			"key": "articleId",
 			"value": ""
 		}
