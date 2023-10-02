@@ -6502,7 +6502,7 @@
 							"id": "0d717056-4ea6-418c-8f40-5410d303a0ba"
 						},
 						{
-							"name": "New Folder",
+							"name": "with only required properys",
 							"item": [],
 							"id": "25742237-0a36-4cf5-aa05-4a4f9b3d669d"
 						},
@@ -8550,7 +8550,7 @@
 	],
 	"variable": [
 		{
-			"id": "c5830983-3252-4848-8f6b-5dbe77dea35f",
+			"id": "3ff6edc9-a9f2-499d-9d3f-a39abfbfc736",
 			"key": "articleId",
 			"value": ""
 		}
