@@ -6571,7 +6571,115 @@
 					"item": [
 						{
 							"name": "Body without required data",
-							"item": [],
+							"item": [
+								{
+									"name": "Add article Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													"const Responseschema = {",
+													"    \"type\": \"object\",",
+													"    \"properties\": {",
+													"        \"user_id\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"title\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"body\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"date\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"image\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"id\": {",
+													"            \"type\": \"integer\"",
+													"        }",
+													"    },",
+													"    \"required\": [",
+													"        \"user_id\",",
+													"        \"title\",",
+													"        \"body\",",
+													"        \"date\",",
+													"        \"image\",",
+													"        \"id\"",
+													"    ]",
+													"}",
+													"",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
+													"});",
+													"",
+													"pm.test(\"Response is in JSON format\", function () {",
+													"    pm.response.to.be.json;",
+													"    responseData = pm.response.json()",
+													"});",
+													"",
+													"pm.test(\"Response has valid schema\", function () {",
+													"    pm.response.to.has.jsonSchema(Responseschema)",
+													"});",
+													"",
+													"",
+													"pm.collectionVariables.set('articleId', responseData.id)",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "abb7bb4b-f805-4adc-8921-71c95364d8f9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								}
+							],
 							"id": "2b9dd512-ac47-41b7-9ce1-2b4082891053"
 						},
 						{
@@ -7799,7 +7907,7 @@
 	],
 	"variable": [
 		{
-			"id": "41cca463-fff9-46db-a53b-0a19d01d8bbd",
+			"id": "ec18d8a4-455d-4ffe-aead-656b02bb3e16",
 			"key": "articleId",
 			"value": ""
 		}
