@@ -4884,38 +4884,7 @@
 								},
 								"description": "Returns a single article"
 							},
-							"response": [
-								{
-									"id": "d00a312c-0027-4a00-8f69-ff159c3784dd",
-									"name": "Article not found",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/articles/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"articles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
-								}
-							]
+							"response": []
 						},
 						{
 							"name": "Updates an article",
@@ -8508,7 +8477,7 @@
 	],
 	"variable": [
 		{
-			"id": "1d12d11d-bd0f-4290-ad69-fabedc173a0d",
+			"id": "f38b640a-ddc9-4290-aa31-d91b9da278bc",
 			"key": "articleId",
 			"value": ""
 		}
