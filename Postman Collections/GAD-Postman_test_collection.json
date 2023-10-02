@@ -7517,7 +7517,7 @@
 					"id": "26b24145-ae20-4e25-914c-5478d87642be"
 				},
 				{
-					"name": "Get articles with query Copy",
+					"name": "Get articles with query",
 					"id": "d1cd8e7c-e23c-4cee-83a0-e878e6fdc184",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -7733,7 +7733,7 @@
 	],
 	"variable": [
 		{
-			"id": "260c9d90-4642-4b87-934e-16ffd8d0e2cd",
+			"id": "f4498464-8b32-474c-9421-8cae697c1ec9",
 			"key": "articleId",
 			"value": ""
 		}
