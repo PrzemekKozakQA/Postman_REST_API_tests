@@ -6787,7 +6787,7 @@
 									"response": []
 								},
 								{
-									"name": "No body",
+									"name": "No body property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "23b90134-9227-4304-aad3-98b03cdc8eb3",
+			"id": "59eaa5b6-eb77-4dea-9034-1ae4e6d1c5f6",
 			"key": "articleId",
 			"value": ""
 		}
