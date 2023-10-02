@@ -6894,7 +6894,7 @@
 									"response": []
 								},
 								{
-									"name": "Add article Copy 3",
+									"name": "No date",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "2ffd39e0-f992-4d90-93de-516e31cb1f5b",
+			"id": "7d6f624c-9b76-4093-a1b1-57e826488764",
 			"key": "articleId",
 			"value": ""
 		}
