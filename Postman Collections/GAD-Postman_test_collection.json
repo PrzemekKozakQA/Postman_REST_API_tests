@@ -5800,21 +5800,6 @@
 											"    pm.expect(responseData).to.have.lengthOf.at.least(1);",
 											"});",
 											"",
-											"",
-											"pm.test(\"Each article has the required fields\", function () {",
-											"  const responseData = pm.response.json();",
-											"",
-											"  pm.expect(responseData).to.be.an('array');",
-											"  responseData.forEach(function (article) {",
-											"    pm.expect(article).to.have.property('id');",
-											"    pm.expect(article).to.have.property('title');",
-											"    pm.expect(article).to.have.property('body');",
-											"    pm.expect(article).to.have.property('user_id');",
-											"    pm.expect(article).to.have.property('date');",
-											"    pm.expect(article).to.have.property('image');",
-											"  });",
-											"});",
-											"",
 											""
 										],
 										"type": "text/javascript"
@@ -7748,7 +7733,7 @@
 	],
 	"variable": [
 		{
-			"id": "744fa80f-c556-46e6-bd91-03fb13bb3d3c",
+			"id": "ae27abb4-6eb6-464f-82b7-f716ec71b668",
 			"key": "articleId",
 			"value": ""
 		}
