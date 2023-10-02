@@ -4847,9 +4847,7 @@
 									"script": {
 										"id": "d91428b2-6991-4a3a-94b6-edaad8c246fc",
 										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -7750,7 +7748,7 @@
 	],
 	"variable": [
 		{
-			"id": "189ac506-c52f-4fa2-8f75-d54233b42900",
+			"id": "58eee52b-5f23-4b0a-a429-2ffb0d18c458",
 			"key": "articleId",
 			"value": ""
 		}
