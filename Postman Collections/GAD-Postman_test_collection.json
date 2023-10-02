@@ -4841,6 +4841,20 @@
 					"item": [
 						{
 							"name": "Find article by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d91428b2-6991-4a3a-94b6-edaad8c246fc",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "c889597c-9d11-45dc-b1cc-1a0ef614bc39",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7736,7 +7750,7 @@
 	],
 	"variable": [
 		{
-			"id": "0a694ed6-111d-498e-bdfe-eec3d92d7204",
+			"id": "189ac506-c52f-4fa2-8f75-d54233b42900",
 			"key": "articleId",
 			"value": ""
 		}
