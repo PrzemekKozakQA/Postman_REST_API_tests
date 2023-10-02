@@ -6939,7 +6939,7 @@
 									"response": []
 								},
 								{
-									"name": "empty title property Copy",
+									"name": "empty title property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8143,7 +8143,7 @@
 	],
 	"variable": [
 		{
-			"id": "fdd9c835-725a-4d38-98c7-42d35859a4d1",
+			"id": "034b3150-0bba-4fcc-962d-ef82d8af16c4",
 			"key": "articleId",
 			"value": ""
 		}
