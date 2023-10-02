@@ -7119,7 +7119,7 @@
 									"response": []
 								},
 								{
-									"name": "No image property Copy",
+									"name": "empty image property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8143,7 +8143,7 @@
 	],
 	"variable": [
 		{
-			"id": "6d8d1fda-4624-4af4-af04-a28d8ff77fad",
+			"id": "798193ae-219d-469e-b1d7-f46bc1234767",
 			"key": "articleId",
 			"value": ""
 		}
