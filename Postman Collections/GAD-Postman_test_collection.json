@@ -6680,7 +6680,7 @@
 									"response": []
 								},
 								{
-									"name": "No title",
+									"name": "No title property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "59eaa5b6-eb77-4dea-9034-1ae4e6d1c5f6",
+			"id": "e29510aa-36c0-4dd1-bbe4-b65fb61933c5",
 			"key": "articleId",
 			"value": ""
 		}
