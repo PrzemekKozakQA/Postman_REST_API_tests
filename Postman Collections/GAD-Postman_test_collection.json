@@ -7059,7 +7059,7 @@
 									"response": []
 								},
 								{
-									"name": "No date property",
+									"name": "empty date property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8143,7 +8143,7 @@
 	],
 	"variable": [
 		{
-			"id": "579723a8-01ab-4215-baa4-81da755013e5",
+			"id": "6d8d1fda-4624-4af4-af04-a28d8ff77fad",
 			"key": "articleId",
 			"value": ""
 		}
