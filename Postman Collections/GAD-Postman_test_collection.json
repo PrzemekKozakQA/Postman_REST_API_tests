@@ -6570,6 +6570,11 @@
 					"name": "Add article - negative",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "2b9dd512-ac47-41b7-9ce1-2b4082891053"
+						},
+						{
 							"name": "No Authorization token",
 							"event": [
 								{
@@ -7794,7 +7799,7 @@
 	],
 	"variable": [
 		{
-			"id": "f65b2ca6-d14d-4fd1-92ac-ec48f5e811c9",
+			"id": "dbd3dd1d-e3d1-41d9-b3f6-1ae2742c812f",
 			"key": "articleId",
 			"value": ""
 		}
