@@ -6101,6 +6101,11 @@
 					"name": "Add article - positive",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "0d717056-4ea6-418c-8f40-5410d303a0ba"
+						},
+						{
 							"name": "Add article",
 							"event": [
 								{
@@ -8539,7 +8544,7 @@
 	],
 	"variable": [
 		{
-			"id": "345774fa-39c1-4e1e-b7a7-0ac4217950bc",
+			"id": "59ce2b06-773a-4276-ab59-69f6595e12ee",
 			"key": "articleId",
 			"value": ""
 		}
