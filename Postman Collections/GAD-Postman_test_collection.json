@@ -6787,7 +6787,7 @@
 									"response": []
 								},
 								{
-									"name": "Add article Copy 2",
+									"name": "No body",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "beb06173-e7bf-4130-857a-440fa169cbd1",
+			"id": "2ffd39e0-f992-4d90-93de-516e31cb1f5b",
 			"key": "articleId",
 			"value": ""
 		}
