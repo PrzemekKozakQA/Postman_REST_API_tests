@@ -6907,7 +6907,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -8147,7 +8147,7 @@
 	],
 	"variable": [
 		{
-			"id": "7e9d35e2-283a-4243-a7e8-40f266600c49",
+			"id": "3fe265ed-bd78-4474-a628-5a41b6f7bbb6",
 			"key": "articleId",
 			"value": ""
 		}
