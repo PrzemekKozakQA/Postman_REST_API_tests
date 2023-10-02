@@ -5790,7 +5790,6 @@
 											"let responseData;",
 											"",
 											"const Responseschema = {",
-											"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
 											"    \"type\": \"array\",",
 											"    \"items\": [",
 											"        {",
@@ -7775,7 +7774,7 @@
 	],
 	"variable": [
 		{
-			"id": "67f86fab-1003-4a7a-9c3f-3df5954ef49c",
+			"id": "3bc6ea39-befe-4611-a895-38c9eb035d53",
 			"key": "articleId",
 			"value": ""
 		}
