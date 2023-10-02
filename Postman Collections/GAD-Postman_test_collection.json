@@ -6537,9 +6537,6 @@
 													"        \"date\": {",
 													"            \"type\": \"string\"",
 													"        },",
-													"        \"image\": {",
-													"            \"type\": \"string\"",
-													"        },",
 													"        \"id\": {",
 													"            \"type\": \"integer\"",
 													"        }",
@@ -6549,7 +6546,6 @@
 													"        \"title\",",
 													"        \"body\",",
 													"        \"date\",",
-													"        \"image\",",
 													"        \"id\"",
 													"    ]",
 													"}",
@@ -6599,7 +6595,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\"\n}",
+											"raw": "{\n    \"user_id\": \"1\",\n    \"title\": \"{{$randomWords}}\",\n    \"body\": \"{{$randomWords}}\",\n    \"date\": \"2024-06-30T15:44:31Z\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -8551,7 +8547,7 @@
 	],
 	"variable": [
 		{
-			"id": "3b3a835b-b9e8-4d54-b727-c36b19fd15d2",
+			"id": "de448c02-09b5-46b8-8fd6-ba6cba979fd0",
 			"key": "articleId",
 			"value": ""
 		}
