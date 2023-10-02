@@ -7001,7 +7001,7 @@
 									"response": []
 								},
 								{
-									"name": "Add article Copy 4",
+									"name": "No image property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "7d6f624c-9b76-4093-a1b1-57e826488764",
+			"id": "a25e39c3-be11-45dd-a784-0e95cf01e4fe",
 			"key": "articleId",
 			"value": ""
 		}
