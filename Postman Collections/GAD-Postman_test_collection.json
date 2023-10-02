@@ -4847,6 +4847,7 @@
 									"script": {
 										"id": "d91428b2-6991-4a3a-94b6-edaad8c246fc",
 										"exec": [
+											"\r",
 											""
 										],
 										"type": "text/javascript"
@@ -8477,7 +8478,7 @@
 	],
 	"variable": [
 		{
-			"id": "f38b640a-ddc9-4290-aa31-d91b9da278bc",
+			"id": "88e6e6f4-e838-4a50-b7e8-82fa1bc3b2a1",
 			"key": "articleId",
 			"value": ""
 		}
