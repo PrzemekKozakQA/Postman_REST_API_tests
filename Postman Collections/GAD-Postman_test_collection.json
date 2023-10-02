@@ -6496,7 +6496,7 @@
 							]
 						},
 						{
-							"name": "Add article without imag",
+							"name": "Add article without image",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -8539,7 +8539,7 @@
 	],
 	"variable": [
 		{
-			"id": "1df65416-5571-4cb8-9342-5c860a4140b5",
+			"id": "6ef37b84-1dd7-411b-b054-d8647f216ceb",
 			"key": "articleId",
 			"value": ""
 		}
