@@ -6894,7 +6894,7 @@
 									"response": []
 								},
 								{
-									"name": "No date",
+									"name": "No date property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "a25e39c3-be11-45dd-a784-0e95cf01e4fe",
+			"id": "23b90134-9227-4304-aad3-98b03cdc8eb3",
 			"key": "articleId",
 			"value": ""
 		}
