@@ -7834,7 +7834,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"user_id\": \"3\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+									"raw": "{\n  \"user_id\": 3,\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -8180,7 +8180,7 @@
 	],
 	"variable": [
 		{
-			"id": "515f1ad0-e9b1-4f2e-8db5-8707a2f1325f",
+			"id": "13ff55d8-d927-4a44-a83a-7a3258c46e51",
 			"key": "articleId",
 			"value": ""
 		}
