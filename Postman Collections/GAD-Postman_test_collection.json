@@ -6573,6 +6573,113 @@
 							"name": "Body without required data",
 							"item": [
 								{
+									"name": "No user_id",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													"const Responseschema = {",
+													"    \"type\": \"object\",",
+													"    \"properties\": {",
+													"        \"user_id\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"title\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"body\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"date\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"image\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"id\": {",
+													"            \"type\": \"integer\"",
+													"        }",
+													"    },",
+													"    \"required\": [",
+													"        \"user_id\",",
+													"        \"title\",",
+													"        \"body\",",
+													"        \"date\",",
+													"        \"image\",",
+													"        \"id\"",
+													"    ]",
+													"}",
+													"",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
+													"});",
+													"",
+													"pm.test(\"Response is in JSON format\", function () {",
+													"    pm.response.to.be.json;",
+													"    responseData = pm.response.json()",
+													"});",
+													"",
+													"pm.test(\"Response has valid schema\", function () {",
+													"    pm.response.to.has.jsonSchema(Responseschema)",
+													"});",
+													"",
+													"",
+													"pm.collectionVariables.set('articleId', responseData.id)",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "c16ae4a5-4a20-4776-a9de-fc3ee1df0024",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/articles"
+									},
+									"response": []
+								},
+								{
 									"name": "Add article Copy",
 									"event": [
 										{
@@ -6965,113 +7072,6 @@
 										}
 									],
 									"id": "aeb3b383-7555-44fc-97b9-a738b44cdbd1",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{token}}"
-											}
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											},
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
-											"options": {
-												"raw": {
-													"headerFamily": "json",
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{baseUrl}}/articles"
-									},
-									"response": []
-								},
-								{
-									"name": "No id",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
-												"exec": [
-													"const Responseschema = {",
-													"    \"type\": \"object\",",
-													"    \"properties\": {",
-													"        \"user_id\": {",
-													"            \"type\": \"string\"",
-													"        },",
-													"        \"title\": {",
-													"            \"type\": \"string\"",
-													"        },",
-													"        \"body\": {",
-													"            \"type\": \"string\"",
-													"        },",
-													"        \"date\": {",
-													"            \"type\": \"string\"",
-													"        },",
-													"        \"image\": {",
-													"            \"type\": \"string\"",
-													"        },",
-													"        \"id\": {",
-													"            \"type\": \"integer\"",
-													"        }",
-													"    },",
-													"    \"required\": [",
-													"        \"user_id\",",
-													"        \"title\",",
-													"        \"body\",",
-													"        \"date\",",
-													"        \"image\",",
-													"        \"id\"",
-													"    ]",
-													"}",
-													"",
-													"pm.test(\"Status code is 201\", function () {",
-													"    pm.response.to.have.status(201);",
-													"});",
-													"",
-													"pm.test(\"Response is in JSON format\", function () {",
-													"    pm.response.to.be.json;",
-													"    responseData = pm.response.json()",
-													"});",
-													"",
-													"pm.test(\"Response has valid schema\", function () {",
-													"    pm.response.to.has.jsonSchema(Responseschema)",
-													"});",
-													"",
-													"",
-													"pm.collectionVariables.set('articleId', responseData.id)",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"id": "c16ae4a5-4a20-4776-a9de-fc3ee1df0024",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -8335,7 +8335,7 @@
 	],
 	"variable": [
 		{
-			"id": "89ba6d5f-08ba-4513-8843-88efeefb395b",
+			"id": "f796058b-170d-4de3-b364-0a42b0dd655b",
 			"key": "articleId",
 			"value": ""
 		}
