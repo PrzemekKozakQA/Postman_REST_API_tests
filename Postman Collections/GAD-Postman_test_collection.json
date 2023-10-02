@@ -6102,119 +6102,89 @@
 					"item": [
 						{
 							"name": "with all propertys",
-							"item": [],
-							"id": "0d717056-4ea6-418c-8f40-5410d303a0ba"
-						},
-						{
-							"name": "Add article",
-							"event": [
+							"item": [
 								{
-									"listen": "prerequest",
-									"script": {
-										"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
-										"exec": [
-											"const Responseschema = {",
-											"    \"type\": \"object\",",
-											"    \"properties\": {",
-											"        \"user_id\": {",
-											"            \"type\": \"string\"",
-											"        },",
-											"        \"title\": {",
-											"            \"type\": \"string\"",
-											"        },",
-											"        \"body\": {",
-											"            \"type\": \"string\"",
-											"        },",
-											"        \"date\": {",
-											"            \"type\": \"string\"",
-											"        },",
-											"        \"image\": {",
-											"            \"type\": \"string\"",
-											"        },",
-											"        \"id\": {",
-											"            \"type\": \"integer\"",
-											"        }",
-											"    },",
-											"    \"required\": [",
-											"        \"user_id\",",
-											"        \"title\",",
-											"        \"body\",",
-											"        \"date\",",
-											"        \"image\",",
-											"        \"id\"",
-											"    ]",
-											"}",
-											"",
-											"pm.test(\"Status code is 201\", function () {",
-											"    pm.response.to.have.status(201);",
-											"});",
-											"",
-											"pm.test(\"Response is in JSON format\", function () {",
-											"    pm.response.to.be.json;",
-											"    responseData = pm.response.json()",
-											"});",
-											"",
-											"pm.test(\"Response has valid schema\", function () {",
-											"    pm.response.to.has.jsonSchema(Responseschema)",
-											"});",
-											"",
-											"",
-											"pm.collectionVariables.set('articleId', responseData.id)",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "68077dc7-2ea2-430f-ae38-075e7b13ee15",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
-									"options": {
-										"raw": {
-											"headerFamily": "json",
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{baseUrl}}/articles"
-							},
-							"response": [
-								{
-									"id": "42e80339-d2e8-4668-90b9-3e91f5ab9870",
 									"name": "Add article",
-									"originalRequest": {
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "3d5651b8-a561-46bf-9476-a8833ae773f4",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "b1aa05ec-2717-47bb-94a1-6da0a4b39619",
+												"exec": [
+													"const Responseschema = {",
+													"    \"type\": \"object\",",
+													"    \"properties\": {",
+													"        \"user_id\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"title\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"body\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"date\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"image\": {",
+													"            \"type\": \"string\"",
+													"        },",
+													"        \"id\": {",
+													"            \"type\": \"integer\"",
+													"        }",
+													"    },",
+													"    \"required\": [",
+													"        \"user_id\",",
+													"        \"title\",",
+													"        \"body\",",
+													"        \"date\",",
+													"        \"image\",",
+													"        \"id\"",
+													"    ]",
+													"}",
+													"",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
+													"});",
+													"",
+													"pm.test(\"Response is in JSON format\", function () {",
+													"    pm.response.to.be.json;",
+													"    responseData = pm.response.json()",
+													"});",
+													"",
+													"pm.test(\"Response has valid schema\", function () {",
+													"    pm.response.to.has.jsonSchema(Responseschema)",
+													"});",
+													"",
+													"",
+													"pm.collectionVariables.set('articleId', responseData.id)",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "68077dc7-2ea2-430f-ae38-075e7b13ee15",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
 										"method": "POST",
 										"header": [
 											{
@@ -6228,7 +6198,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+											"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"{{$randomWords}}\",\n  \"body\": \"{{$randomWords}}\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"{{$randomImageUrl}}\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -6238,267 +6208,303 @@
 										},
 										"url": "{{baseUrl}}/articles"
 									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "Date",
-											"value": "Thu, 28 Sep 2023 21:23:14 GMT"
+											"id": "42e80339-d2e8-4668-90b9-3e91f5ab9870",
+											"name": "Add article",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"user_id\": \"1\",\n  \"title\": \"test title user 2\",\n  \"body\": \"Lorem ipsum set doloris2\",\n  \"date\": \"2024-06-30T15:44:31Z\",\n  \"image\": \"img/img/test/1\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/articles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 28 Sep 2023 21:23:14 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Location",
+													"value": "http://gui-api-demo-bg91.onrender.com/api/articles/60"
+												},
+												{
+													"key": "CF-Ray",
+													"value": "80df0be19a78bfc3-WAW"
+												},
+												{
+													"key": "CF-Cache-Status",
+													"value": "DYNAMIC"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"a5-tHznjWR86cJbsz9r8LIANn91NdA\""
+												},
+												{
+													"key": "Expires",
+													"value": "-1"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding"
+												},
+												{
+													"key": "access-control-allow-credentials",
+													"value": "true"
+												},
+												{
+													"key": "access-control-expose-headers",
+													"value": "Location"
+												},
+												{
+													"key": "content-security-policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "cross-origin-embedder-policy",
+													"value": "require-corp"
+												},
+												{
+													"key": "cross-origin-opener-policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "cross-origin-resource-policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "origin-agent-cluster",
+													"value": "?1"
+												},
+												{
+													"key": "pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "referrer-policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "x-content-type-options",
+													"value": "nosniff"
+												},
+												{
+													"key": "x-dns-prefetch-control",
+													"value": "off"
+												},
+												{
+													"key": "x-download-options",
+													"value": "noopen"
+												},
+												{
+													"key": "x-frame-options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "x-permitted-cross-domain-policies",
+													"value": "none"
+												},
+												{
+													"key": "x-render-origin-server",
+													"value": "Render"
+												},
+												{
+													"key": "x-xss-protection",
+													"value": "0"
+												},
+												{
+													"key": "Server",
+													"value": "cloudflare"
+												},
+												{
+													"key": "alt-svc",
+													"value": "h3=\":443\"; ma=86400"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"user_id\": \"1\",\n    \"title\": \"test title user 2\",\n    \"body\": \"Lorem ipsum set doloris2\",\n    \"date\": \"2024-06-30T15:44:31Z\",\n    \"image\": \"img/img/test/1\",\n    \"id\": 60\n}"
+										}
+									]
+								},
+								{
+									"name": "Deletes an article",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "54fb432d-e28c-4c4c-afcb-3631ab75754c",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
 										},
 										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Location",
-											"value": "http://gui-api-demo-bg91.onrender.com/api/articles/60"
-										},
-										{
-											"key": "CF-Ray",
-											"value": "80df0be19a78bfc3-WAW"
-										},
-										{
-											"key": "CF-Cache-Status",
-											"value": "DYNAMIC"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"a5-tHznjWR86cJbsz9r8LIANn91NdA\""
-										},
-										{
-											"key": "Expires",
-											"value": "-1"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=15552000; includeSubDomains"
-										},
-										{
-											"key": "Vary",
-											"value": "Accept-Encoding"
-										},
-										{
-											"key": "access-control-allow-credentials",
-											"value": "true"
-										},
-										{
-											"key": "access-control-expose-headers",
-											"value": "Location"
-										},
-										{
-											"key": "content-security-policy",
-											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-										},
-										{
-											"key": "cross-origin-embedder-policy",
-											"value": "require-corp"
-										},
-										{
-											"key": "cross-origin-opener-policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "cross-origin-resource-policy",
-											"value": "same-origin"
-										},
-										{
-											"key": "origin-agent-cluster",
-											"value": "?1"
-										},
-										{
-											"key": "pragma",
-											"value": "no-cache"
-										},
-										{
-											"key": "referrer-policy",
-											"value": "no-referrer"
-										},
-										{
-											"key": "x-content-type-options",
-											"value": "nosniff"
-										},
-										{
-											"key": "x-dns-prefetch-control",
-											"value": "off"
-										},
-										{
-											"key": "x-download-options",
-											"value": "noopen"
-										},
-										{
-											"key": "x-frame-options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "x-permitted-cross-domain-policies",
-											"value": "none"
-										},
-										{
-											"key": "x-render-origin-server",
-											"value": "Render"
-										},
-										{
-											"key": "x-xss-protection",
-											"value": "0"
-										},
-										{
-											"key": "Server",
-											"value": "cloudflare"
-										},
-										{
-											"key": "alt-svc",
-											"value": "h3=\":443\"; ma=86400"
+											"listen": "test",
+											"script": {
+												"id": "b4d6acfe-22bf-4697-99c4-0bb4f828fd5c",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
 										}
 									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"user_id\": \"1\",\n    \"title\": \"test title user 2\",\n    \"body\": \"Lorem ipsum set doloris2\",\n    \"date\": \"2024-06-30T15:44:31Z\",\n    \"image\": \"img/img/test/1\",\n    \"id\": 60\n}"
-								}
-							]
-						},
-						{
-							"name": "Deletes an article",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "54fb432d-e28c-4c4c-afcb-3631ab75754c",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "b4d6acfe-22bf-4697-99c4-0bb4f828fd5c",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "c8d0ac9b-84c9-4c89-a29d-e162de7b7b33",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
-								},
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/articles/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"articles",
-										":id"
-									],
-									"variable": [
+									"id": "c8d0ac9b-84c9-4c89-a29d-e162de7b7b33",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{token}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/articles/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"articles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{articleId}}"
+												}
+											]
+										}
+									},
+									"response": [
 										{
-											"key": "id",
-											"value": "{{articleId}}"
+											"id": "1a2af5d9-fbaf-4e32-a219-4e630322bbeb",
+											"name": "Article deleted",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/articles/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"articles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"responseTime": null,
+											"body": ""
+										},
+										{
+											"id": "fe4d7b71-2613-45d7-8c45-7067d006ae72",
+											"name": "Article not found",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/articles/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"articles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"responseTime": null,
+											"body": ""
 										}
 									]
 								}
-							},
-							"response": [
-								{
-									"id": "1a2af5d9-fbaf-4e32-a219-4e630322bbeb",
-									"name": "Article deleted",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/articles/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"articles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
-								},
-								{
-									"id": "fe4d7b71-2613-45d7-8c45-7067d006ae72",
-									"name": "Article not found",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/articles/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"articles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "Not Found",
-									"code": 404,
-									"_postman_previewlanguage": "text",
-									"header": [],
-									"cookie": [],
-									"responseTime": null,
-									"body": ""
-								}
-							]
+							],
+							"id": "0d717056-4ea6-418c-8f40-5410d303a0ba"
+						},
+						{
+							"name": "New Folder",
+							"item": [],
+							"id": "25742237-0a36-4cf5-aa05-4a4f9b3d669d"
 						},
 						{
 							"name": "Add article without image",
@@ -8544,7 +8550,7 @@
 	],
 	"variable": [
 		{
-			"id": "8d8ec3ec-ce3e-44bf-9b91-1469448ca71c",
+			"id": "c5830983-3252-4848-8f6b-5dbe77dea35f",
 			"key": "articleId",
 			"value": ""
 		}
