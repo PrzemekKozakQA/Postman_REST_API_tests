@@ -7059,7 +7059,7 @@
 									"response": []
 								},
 								{
-									"name": "No date property Copy",
+									"name": "No date property",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -8143,7 +8143,7 @@
 	],
 	"variable": [
 		{
-			"id": "79663c39-738c-4cff-a29f-03ac8a477a37",
+			"id": "6a43e277-a783-40e0-ad1d-7f41a4a2c126",
 			"key": "articleId",
 			"value": ""
 		}
