@@ -7873,7 +7873,8 @@
 											"pm.test(\"Message is correct\", function () {",
 											"    let message = pm.response.json().error.message;",
 											"    pm.expect(message).eql(\"Access token for given user is invalid!\");",
-											"});"
+											"});",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -8547,7 +8548,7 @@
 	],
 	"variable": [
 		{
-			"id": "c9acdf3a-57fc-4b92-b31d-a9115081567f",
+			"id": "8d64ca8b-ac33-45f0-a0ec-adb81ef13847",
 			"key": "articleId",
 			"value": ""
 		}
