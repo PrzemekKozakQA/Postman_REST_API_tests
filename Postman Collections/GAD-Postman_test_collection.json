@@ -6760,7 +6760,7 @@
 							]
 						},
 						{
-							"name": "Deletes an article Copy",
+							"name": "Deletes an article without image",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -8539,7 +8539,7 @@
 	],
 	"variable": [
 		{
-			"id": "6ef37b84-1dd7-411b-b054-d8647f216ceb",
+			"id": "345774fa-39c1-4e1e-b7a7-0ac4217950bc",
 			"key": "articleId",
 			"value": ""
 		}
