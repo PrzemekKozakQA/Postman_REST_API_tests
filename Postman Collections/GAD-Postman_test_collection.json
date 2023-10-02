@@ -6570,7 +6570,7 @@
 					"name": "Add article - negative",
 					"item": [
 						{
-							"name": "New Folder",
+							"name": "Body without required data",
 							"item": [],
 							"id": "2b9dd512-ac47-41b7-9ce1-2b4082891053"
 						},
@@ -7799,7 +7799,7 @@
 	],
 	"variable": [
 		{
-			"id": "dbd3dd1d-e3d1-41d9-b3f6-1ae2742c812f",
+			"id": "41cca463-fff9-46db-a53b-0a19d01d8bbd",
 			"key": "articleId",
 			"value": ""
 		}
