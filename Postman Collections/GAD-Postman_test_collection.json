@@ -12,7 +12,7 @@
 					"name": "Login - positive",
 					"item": [
 						{
-							"name": "Login as user to receive token",
+							"name": "Login as user to receive token!",
 							"event": [
 								{
 									"listen": "test",
