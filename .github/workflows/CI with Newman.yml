@@ -17,3 +17,8 @@ jobs:
         run: npm install -g newman-reporter-htmlextra
       - name: Run API tests
         run: newman run "Postman Collections/GAD-Postman_test_collection.json" --environment "Postman Collections/Test (render.com).postman_environment.json" -r htmlextra
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        with:
+          name: newman-report
+          path: testReport
